@@ -1,0 +1,550 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_error_message</title>
+  </head>
+  <body>
+    <h1>avr6552_error_message</h1>
+    <p class="syntax">
+      ViStatus avr6552_error_message (ViSession instrumentHandle,
+                                ViStatus errorCode,
+                                ViChar _VI_FAR errorMessage[]);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function converts a status code returned by an instrument driver function into a user-readable string.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    You can pass VI_NULL for this parameter.&nbsp;&nbsp;This is useful when one of the initialize functions fail.
+    <br/>
+    Default Value:&nbsp;&nbsp;VI_NULL
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">errorCode</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Pass the Status parameter that is returned from any of the instrument driver functions.
+    <br/>
+    Default Value:&nbsp;&nbsp;0&nbsp;&nbsp;(VI_SUCCESS)
+    <br/>
+    avr6552 Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status code.
+    <br/>
+    IviDmm Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    WARNINGS:
+    <br/>
+    3FFA2001&nbsp;&nbsp;Over range condition.
+    <br/>
+    ERRORS:
+    <br/>
+    BFFA2003&nbsp;&nbsp;Maximum operation time was exceeded.
+    <br/>
+    IVI Engine Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    ERRORS:
+    <br/>
+    BFFA0001&nbsp;&nbsp;Instrument error. Call avr6552_error_query.
+    <br/>
+    BFFA0002&nbsp;&nbsp;Cannot open file.
+    <br/>
+    BFFA0003&nbsp;&nbsp;Error reading from file.
+    <br/>
+    BFFA0004&nbsp;&nbsp;Error writing to file.
+    <br/>
+    BFFA0005&nbsp;&nbsp;Driver module file not found.
+    <br/>
+    BFFA0006&nbsp;&nbsp;Cannot open driver module file for reading.
+    <br/>
+    BFFA0007&nbsp;&nbsp;Driver module has invalid file format or invalid data.
+    <br/>
+    BFFA0008&nbsp;&nbsp;Driver module contains undefined references.
+    <br/>
+    BFFA0009&nbsp;&nbsp;Cannot find function in driver module.
+    <br/>
+    BFFA000A&nbsp;&nbsp;Failure loading driver module.
+    <br/>
+    BFFA000B&nbsp;&nbsp;Invalid path name.
+    <br/>
+    BFFA000C&nbsp;&nbsp;Invalid attribute.
+    <br/>
+    BFFA000D&nbsp;&nbsp;IVI attribute is not writable.
+    <br/>
+    BFFA000E&nbsp;&nbsp;IVI attribute is not readable.
+    <br/>
+    BFFA000F&nbsp;&nbsp;Invalid parameter.
+    <br/>
+    BFFA0010&nbsp;&nbsp;Invalid value.
+    <br/>
+    BFFA0011&nbsp;&nbsp;Function not supported.
+    <br/>
+    BFFA0012&nbsp;&nbsp;Attribute not supported.
+    <br/>
+    BFFA0013&nbsp;&nbsp;Value not supported.
+    <br/>
+    BFFA0014&nbsp;&nbsp;Invalid type.
+    <br/>
+    BFFA0015&nbsp;&nbsp;Types do not match.
+    <br/>
+    BFFA0016&nbsp;&nbsp;Attribute already has a value waiting to be updated.
+    <br/>
+    BFFA0017&nbsp;&nbsp;Specified item already exists.
+    <br/>
+    BFFA0018&nbsp;&nbsp;Not a valid configuration.
+    <br/>
+    BFFA0019&nbsp;&nbsp;Requested item does not exist or value not available.
+    <br/>
+    BFFA001A&nbsp;&nbsp;Requested attribute value not known.
+    <br/>
+    BFFA001B&nbsp;&nbsp;No range table.
+    <br/>
+    BFFA001C&nbsp;&nbsp;Range table is invalid.
+    <br/>
+    BFFA001D&nbsp;&nbsp;Object or item is not initialized.
+    <br/>
+    BFFA001E&nbsp;&nbsp;Non-interchangeable behavior.
+    <br/>
+    BFFA001F&nbsp;&nbsp;No channel table has been built for the session.
+    <br/>
+    BFFA0020&nbsp;&nbsp;Channel name specified is not valid.
+    <br/>
+    BFFA0021&nbsp;&nbsp;Unable to allocate system resource.
+    <br/>
+    BFFA0022&nbsp;&nbsp;Permission to access file was denied.
+    <br/>
+    BFFA0023&nbsp;&nbsp;Too many files are already open.
+    <br/>
+    BFFA0024&nbsp;&nbsp;Unable to create temporary file in target directory.
+    <br/>
+    BFFA0025&nbsp;&nbsp;All temporary filenames already used.
+    <br/>
+    BFFA0026&nbsp;&nbsp;Disk is full.
+    <br/>
+    BFFA0027&nbsp;&nbsp;Cannot find configuration file on disk.
+    <br/>
+    BFFA0028&nbsp;&nbsp;Cannot open configuration file.
+    <br/>
+    BFFA0029&nbsp;&nbsp;Error reading configuration file.
+    <br/>
+    BFFA002A&nbsp;&nbsp;Invalid ViInt32 value in configuration file.
+    <br/>
+    BFFA002B&nbsp;&nbsp;Invalid ViReal64 value in configuration file.
+    <br/>
+    BFFA002C&nbsp;&nbsp;Invalid ViBoolean value in configuration file.
+    <br/>
+    BFFA002D&nbsp;&nbsp;Entry missing from configuration file.
+    <br/>
+    BFFA002E&nbsp;&nbsp;Initialization failed in driver DLL.
+    <br/>
+    BFFA002F&nbsp;&nbsp;Driver module has unresolved external reference.
+    <br/>
+    BFFA0030&nbsp;&nbsp;Cannot find CVI Run-Time Engine.
+    <br/>
+    BFFA0031&nbsp;&nbsp;Cannot open CVI Run-Time Engine.
+    <br/>
+    BFFA0032&nbsp;&nbsp;CVI Run-Time Engine has invalid format.
+    <br/>
+    BFFA0033&nbsp;&nbsp;CVI Run-Time Engine is missing required function(s).
+    <br/>
+    BFFA0034&nbsp;&nbsp;CVI Run-Time Engine initialization failed.
+    <br/>
+    BFFA0035&nbsp;&nbsp;CVI Run-Time Engine has unresolved external reference.
+    <br/>
+    BFFA0036&nbsp;&nbsp;Failure loading CVI Run-Time Engine.
+    <br/>
+    BFFA0037&nbsp;&nbsp;Cannot open DLL for read exports.
+    <br/>
+    BFFA0038&nbsp;&nbsp;DLL file is corrupt.
+    <br/>
+    BFFA0039&nbsp;&nbsp;No DLL export table in DLL.
+    <br/>
+    BFFA003A&nbsp;&nbsp;Unknown attribute name in default configuration file.
+    <br/>
+    BFFA003B&nbsp;&nbsp;Unknown attribute value in default configuration file.
+    <br/>
+    BFFA003C&nbsp;&nbsp;Memory pointer specified is not known.
+    <br/>
+    BFFA003D&nbsp;&nbsp;Unable to find any channel strings.
+    <br/>
+    BFFA003E&nbsp;&nbsp;Duplicate channel string.
+    <br/>
+    BFFA003F&nbsp;&nbsp;Duplicate virtual channel name.
+    <br/>
+    BFFA0040&nbsp;&nbsp;Missing virtual channel name.
+    <br/>
+    BFFA0041&nbsp;&nbsp;Bad virtual channel name.
+    <br/>
+    BFFA0042&nbsp;&nbsp;Unassigned virtual channel name.
+    <br/>
+    BFFA0043&nbsp;&nbsp;Bad virtual channel assignment.
+    <br/>
+    BFFA0044&nbsp;&nbsp;Channel name required.
+    <br/>
+    BFFA0045&nbsp;&nbsp;Channel name not allowed.
+    <br/>
+    BFFA0046&nbsp;&nbsp;Attribute not valid for channel.
+    <br/>
+    BFFA0047&nbsp;&nbsp;Attribute must be channel based.
+    <br/>
+    BFFA0048&nbsp;&nbsp;Channel already excluded.
+    <br/>
+    BFFA0049&nbsp;&nbsp;Missing option name (nothing before the '=').
+    <br/>
+    BFFA004A&nbsp;&nbsp;Missing option value (nothing after the '=').
+    <br/>
+    BFFA004B&nbsp;&nbsp;Bad option name.
+    <br/>
+    BFFA004C&nbsp;&nbsp;Bad option value.
+    <br/>
+    BFFA004D&nbsp;&nbsp;Operation only valid on a class driver session.
+    <br/>
+    BFFA004E&nbsp;&nbsp;&quot;ivi.ini&quot; filename is reserved.
+    <br/>
+    BFFA004F&nbsp;&nbsp;Duplicate run-time configuration entry.
+    <br/>
+    BFFA0050&nbsp;&nbsp;Index parameter is one-based.
+    <br/>
+    BFFA0051&nbsp;&nbsp;Index parameter is too high.
+    <br/>
+    BFFA0052&nbsp;&nbsp;Attribute is not cacheable.
+    <br/>
+    BFFA0053&nbsp;&nbsp;You cannot export a ViAddr attribute to the end-user.
+    <br/>
+    BFFA0054&nbsp;&nbsp;Bad channel string in channel string list.
+    <br/>
+    BFFA0055&nbsp;&nbsp;Bad prefix name in default configuration file.
+    <br/>
+    VISA Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    WARNINGS:
+    <br/>
+    3FFF0002 Event enabled for one or more specified mechanisms.
+    <br/>
+    3FFF0003 Event disabled for one or more specified mechanisms.
+    <br/>
+    3FFF0004 Successful, but queue already empty.
+    <br/>
+    3FFF0005 Specified termination character was read.
+    <br/>
+    3FFF0006 Number of bytes transferred equals input count.
+    <br/>
+    3FFF0077 Configuration non-existant or could not be loaded.
+    <br/>
+    3FFF007D Open successful, but the device not responding.
+    <br/>
+    3FFF0080 Wait successful, but more event objects available.
+    <br/>
+    3FFF0082 Specified object reference is uninitialized.
+    <br/>
+    3FFF0084 Attribute value not supported.
+    <br/>
+    3FFF0085 Status code could not be interpreted.
+    <br/>
+    3FFF0088 Specified I/O buffer type not supported.
+    <br/>
+    3FFF0098 Successful,&nbsp;&nbsp;but invoke no handlers for this event.
+    <br/>
+    3FFF0099 Successful but session has nested shared locks.
+    <br/>
+    3FFF009A Successful but session has nested exclusive locks.
+    <br/>
+    3FFF009B Successful but operation not asynchronous.
+    <br/>
+    ERRORS:
+    <br/>
+    BFFF0000 Unknown system error (miscellaneous error).
+    <br/>
+    BFFF000E Session or object reference is invalid.
+    <br/>
+    BFFF000F Resource is locked.
+    <br/>
+    BFFF0010 Invalid expression specified for search.
+    <br/>
+    BFFF0011 Resource is not present in the system.
+    <br/>
+    BFFF0012 Invalid resource reference specified.&nbsp;&nbsp;Parsing error.
+    <br/>
+    BFFF0013 Invalid access mode.
+    <br/>
+    BFFF0015 Timeout expired before operation completed.
+    <br/>
+    BFFF0016 Unable to deallocate session data structures.
+    <br/>
+    BFFF001B Specified degree is invalid.
+    <br/>
+    BFFF001C Specified job identifier is invalid.
+    <br/>
+    BFFF001D Attribute is not supported by the referenced object.
+    <br/>
+    BFFF001E Attribute state not supported by the referenced object.
+    <br/>
+    BFFF001F Specified attribute is read-only.
+    <br/>
+    BFFF0020 Lock type lock not supported by this resource.
+    <br/>
+    BFFF0021 Invalid access key.
+    <br/>
+    BFFF0026 Specified event type not supported by the resource.
+    <br/>
+    BFFF0027 Invalid mechanism specified.
+    <br/>
+    BFFF0028 A handler was not installed.
+    <br/>
+    BFFF0029 Handler reference either invalid or was not installed.
+    <br/>
+    BFFF002A Specified event context invalid.
+    <br/>
+    BFFF002D Event queue for specified type has overflowed.
+    <br/>
+    BFFF002F Event type must be enabled in order to receive.
+    <br/>
+    BFFF0030 User abort during transfer.
+    <br/>
+    BFFF0034 Violation of raw write protocol during transfer.
+    <br/>
+    BFFF0035 Violation of raw read protocol during transfer.
+    <br/>
+    BFFF0036 Device reported output protocol error during transfer.
+    <br/>
+    BFFF0037 Device reported input protocol error during transfer.
+    <br/>
+    BFFF0038 Bus error during transfer.
+    <br/>
+    BFFF0039 Unable to queue asynchronous operation.
+    <br/>
+    BFFF003A Unable to start operation because setup is invalid.
+    <br/>
+    BFFF003B Unable to queue the asynchronous operation.
+    <br/>
+    BFFF003C Insufficient resources to perform memory allocation.
+    <br/>
+    BFFF003D Invalid buffer mask specified.
+    <br/>
+    BFFF003E I/O error.
+    <br/>
+    BFFF003F Format specifier invalid.
+    <br/>
+    BFFF0041 Format specifier not supported.
+    <br/>
+    BFFF0042 Trigger line is currently in use.
+    <br/>
+    BFFF004A Service request not received for the session.
+    <br/>
+    BFFF004E Invalid address space specified.
+    <br/>
+    BFFF0051 Invalid offset specified.
+    <br/>
+    BFFF0052 Invalid access width specified.
+    <br/>
+    BFFF0054 Offset not accessible from this hardware.
+    <br/>
+    BFFF0055 Source and destination widths are different.
+    <br/>
+    BFFF0057 Session not currently mapped.
+    <br/>
+    BFFF0059 Previous response still pending.
+    <br/>
+    BFFF005F No listeners condition detected.
+    <br/>
+    BFFF0060 Interface not currently the controller in charge.
+    <br/>
+    BFFF0061 Interface not the system controller.
+    <br/>
+    BFFF0067 Session does not support this operation.
+    <br/>
+    BFFF006A A parity error occurred during transfer.
+    <br/>
+    BFFF006B A framing error occurred during transfer.
+    <br/>
+    BFFF006C An overrun error occurred during transfer.
+    <br/>
+    BFFF0070 Offset not properly aligned for operation access width.
+    <br/>
+    BFFF0071 Specified user buffer not valid.
+    <br/>
+    BFFF0072 Resource valid, but VISA cannot access it.
+    <br/>
+    BFFF0076 Width not supported by this hardware.
+    <br/>
+    BFFF0078 Invalid parameter value, parameter unknown.
+    <br/>
+    BFFF0079 Invalid protocol.
+    <br/>
+    BFFF007B Invalid window size.
+    <br/>
+    BFFF0080 Session currently contains a mapped window.
+    <br/>
+    BFFF0081 Operation not implemented.
+    <br/>
+    BFFF0083 Invalid length.
+    <br/>
+    BFFF0091 Invalid mode.
+    <br/>
+    BFFF009C Session did not have a lock on the resource.
+    <br/>
+    BFFF009D The device does not export any memory.
+    <br/>
+    BFFF009E VISA-required code library not located or not loaded.
+    <br/>
+    VXIPnP Driver Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    WARNINGS:
+    <br/>
+    3FFC0101&nbsp;&nbsp;Instrument does not have ID Query capability.
+    <br/>
+    3FFC0102&nbsp;&nbsp;Instrument does not have Reset capability.
+    <br/>
+    3FFC0103&nbsp;&nbsp;Instrument does not have Self-Test capability.
+    <br/>
+    3FFC0104&nbsp;&nbsp;Instrument does not have Error Query capability.
+    <br/>
+    3FFC0105&nbsp;&nbsp;Instrument does not have Revision Query capability.
+    <br/>
+    ERRORS:
+    <br/>
+    BFFC0001&nbsp;&nbsp;Parameter 1 out of range, or error trying to set it.
+    <br/>
+    BFFC0002&nbsp;&nbsp;Parameter 2 out of range, or error trying to set it.
+    <br/>
+    BFFC0003&nbsp;&nbsp;Parameter 3 out of range, or error trying to set it.
+    <br/>
+    BFFC0004&nbsp;&nbsp;Parameter 4 out of range, or error trying to set it.
+    <br/>
+    BFFC0005&nbsp;&nbsp;Parameter 5 out of range, or error trying to set it.
+    <br/>
+    BFFC0006&nbsp;&nbsp;Parameter 6 out of range, or error trying to set it.
+    <br/>
+    BFFC0007&nbsp;&nbsp;Parameter 7 out of range, or error trying to set it.
+    <br/>
+    BFFC0008&nbsp;&nbsp;Parameter 8 out of range, or error trying to set it.
+    <br/>
+    BFFC0011&nbsp;&nbsp;Instrument failed the ID Query.
+    <br/>
+    BFFC0012&nbsp;&nbsp;Invalid response from instrument.
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><em class="label">Output</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">errorMessage</td>
+        <td class="paramDataType">ViChar[]</td>
+        <td>
+    Returns the user-readable message string that corresponds to the status code you specify.
+    <br/>
+    You must pass a ViChar array with at least 256 bytes.
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassUtility.html">Utility</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

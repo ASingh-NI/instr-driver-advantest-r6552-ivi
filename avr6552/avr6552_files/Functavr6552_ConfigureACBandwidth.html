@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_ConfigureACBandwidth</title>
+  </head>
+  <body>
+    <h1>avr6552_ConfigureACBandwidth</h1>
+    <p class="syntax">
+      ViStatus avr6552_ConfigureACBandwidth (ViSession instrumentHandle,
+                                       ViReal64 ACMinimumFrequency_Hz,
+                                       ViReal64 ACMaximumFrequency_Hz);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function configures the AC minimum and maximum frequency for AC voltage or AC current measurements.
+    <br/>
+    This function affects the behavior of the instrument only if the AVR6552_ATTR_FUNCTION attribute is set to an AC voltage or AC current measurement.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">ACMinimumFrequency_Hz</td>
+        <td class="paramDataType">ViReal64</td>
+        <td>
+    Pass the minimum expected frequency component of the input signal.&nbsp;&nbsp;The units are hertz.&nbsp;&nbsp;The driver sets the AVR6552_ATTR_AC_MIN_FREQ attribute to this value.
+    <br/>
+    This parameter affects the DMM only when you set the Measurement Function parameter to AC measurement.
+    <br/>
+    Valid Range: 20.0 - 300.0 Hz
+    <br/>
+    Default Value: 20.0 Hz
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">ACMaximumFrequency_Hz</td>
+        <td class="paramDataType">ViReal64</td>
+        <td>
+    Pass the maximum expected frequency component of the input signal.&nbsp;&nbsp;The units are hertz.&nbsp;&nbsp;The driver sets the AVR6552_ATTR_AC_MAX_FREQ attribute to this value.
+    <br/>
+    This parameter affects the DMM only when you set the Measurement Function parameter to AC measurement.
+    <br/>
+    The maximum valid value of this attribute depends on the measurement function.
+    <br/>
+    Valid Range:&nbsp;&nbsp;
+    <br/>
+    For AC voltage measurements: 300.0 - 300000.0 Hz
+    <br/>
+    For AC current measurements: 300.0 - 5000.0 Hz
+    <br/>
+    Default Value: 300000.0 Hz
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    WARNINGS:
+    <br/>
+    /*=CHANGE:===================================================*
+    <br/>
+    Insert Instrument-defined warning codes here.
+    <br/>
+    *================================================END=CHANGE=*/
+    <br/>
+    ERRORS:
+    <br/>
+    /*=CHANGE:===================================================*
+    <br/>
+    Insert Instrument-defined error codes here.
+    <br/>
+    *================================================END=CHANGE=*/
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassSpecific%20Measurements.html">Specific Measurements</a><br/>
+      <a href="ClassConfiguration.html">Configuration</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_ConfigureDecibel</title>
+  </head>
+  <body>
+    <h1>avr6552_ConfigureDecibel</h1>
+    <p class="syntax">
+      ViStatus avr6552_ConfigureDecibel (ViSession instrumentHandle, ViInt32 mode,
+                                   ViReal64 decibelValue);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function configures the DMM to perform the dB/dBm calculations. This calculation executes a decibel converison.
+    <br/>
+    Notes:
+    <br/>
+    (1) This calculation is functional only during voltage measurements.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">mode</td>
+        <td class="paramDataType">ViInt32</td>
+        <td>
+    Select the decible conversion to perform. The driver uses this value to set the AVR6552_ATTR_DB_MODE attribute.
+    <br/>
+    Defined Values:
+    <br/>
+    AVR6552_VAL_DB_OFF - Disable the dB/dBm calculation (Default)
+    <br/>
+    AVR6552_VAL_DB_ON&nbsp;&nbsp;- Enable the dB calculation
+    <br/>
+    AVR6552_VAL_DBM_ON - Enable the dBm calculation
+    <br/>
+    Notes:
+    <br/>
+    (1) The dB calculation executes a decibel converison. It is functional only during voltage measurements.
+    <br/>
+    (2) The dBm calculation is useful for calculating the power gain&nbsp;&nbsp;per mV. It is functional only during voltage measurements.
+    <br/>
+    (3) The db, dBm, and scaling calculations cannot be selected at the same time.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">decibelValue</td>
+        <td class="paramDataType">ViReal64</td>
+        <td>
+    Pass the decibel value you want the DMM to use.&nbsp;&nbsp;The driver sets the attribute AVR6552_ATTR_DB_CONSTANT to this value.
+    <br/>
+    Valid Values:&nbsp;&nbsp;0.00001E-9 - +999999.E+6
+    <br/>
+    Default Value:&nbsp;&nbsp;1.0
+    <br/>
+    Note:
+    <br/>
+    (1) This attribute does not affect the behavior of the instrument if the value of the AVR6552_ATTR_DB_MODE attribute is AVR6552_VAL_DB_OFF.
+    <br/>
+    (2) This parameter is ignored if the value of the 'Enable' parameter is AVR6552_VAL_DB_OFF.
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassCalaculations.html">Calaculations</a><br/>
+      <a href="ClassMeasurement%20Operation%20Options.html">Measurement Operation Options</a><br/>
+      <a href="ClassConfiguration.html">Configuration</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

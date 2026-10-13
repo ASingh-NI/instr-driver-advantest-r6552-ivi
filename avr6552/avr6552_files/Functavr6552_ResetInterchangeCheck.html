@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_ResetInterchangeCheck</title>
+  </head>
+  <body>
+    <h1>avr6552_ResetInterchangeCheck</h1>
+    <p class="syntax">
+      ViStatus avr6552_ResetInterchangeCheck (ViSession instrumentHandle);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    When developing a complex test system that consists of multiple test modules, it is generally a good idea to design the test modules so that they can run in any order.&nbsp;&nbsp;To do so requires ensuring that each test module completely configures the state of each instrument it uses.&nbsp;&nbsp;If a particular test module does not completely configure the state of an instrument, the state of the instrument depends on the configuration from a previously executed test module.&nbsp;&nbsp;If you execute the test modules in a different order, the behavior of the instrument and therefore the entire test module is likely to change.&nbsp;&nbsp;This change in behavior is generally instrument specific and represents an interchangeability problem.
+    <br/>
+    You can use this function to test for such cases.&nbsp;&nbsp;After you call this function, the interchangeability checking algorithms in the specific driver ignore all previous configuration operations.&nbsp;&nbsp;By calling this function at the beginning of a test module, you can determine whether the test module has dependencies on the operation of previously executed test modules.
+    <br/>
+    This function does not clear the interchangeability warnings from the list of previously recorded interchangeability warnings.&nbsp;&nbsp;If you want to guarantee that the avr6552_GetNextInterchangeWarning function only returns those interchangeability warnings that are generated after calling this function, you must clear the list of interchangeability warnings.&nbsp;&nbsp;You can clear the interchangeability warnings list by repeatedly calling the avr6552_GetNextInterchangeWarning function until no more interchangeability warnings are returned.&nbsp;&nbsp;If you are not interested in the content of those warnings, you can call the avr6552_ClearInterchangeWarnings function.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, or if the status code is not listed below, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, use the avr6552_GetError and avr6552_ClearError functions.
+    <br/>
+    Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    0&nbsp;&nbsp;No error (the call was successful).
+    <br/>
+    3FFF0005&nbsp;&nbsp;The specified termination character was read.
+    <br/>
+    3FFF0006&nbsp;&nbsp;The specified number of bytes was read.
+    <br/>
+    3FFC0102&nbsp;&nbsp;Reset not supported.
+    <br/>
+    BFFF0000&nbsp;&nbsp;Miscellaneous or system error occurred.
+    <br/>
+    BFFF000E&nbsp;&nbsp;Invalid session handle.
+    <br/>
+    BFFF0015&nbsp;&nbsp;Timeout occurred before operation could complete.
+    <br/>
+    BFFF0034&nbsp;&nbsp;Violation of raw write protocol occurred.
+    <br/>
+    BFFF0035&nbsp;&nbsp;Violation of raw read protocol occurred.
+    <br/>
+    BFFF0036&nbsp;&nbsp;Device reported an output protocol error.
+    <br/>
+    BFFF0037&nbsp;&nbsp;Device reported an input protocol error.
+    <br/>
+    BFFF0038&nbsp;&nbsp;Bus error occurred during transfer.
+    <br/>
+    BFFF003A&nbsp;&nbsp;Invalid setup (attributes are not consistent).
+    <br/>
+    BFFF005F&nbsp;&nbsp;A &quot;no listeners&quot; condition was detected.
+    <br/>
+    BFFF0060&nbsp;&nbsp;This interface is not the controller-in-charge.
+    <br/>
+    BFFF0067&nbsp;&nbsp;Operation is not supported on this session.
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassInterchangeability%20Info.html">Interchangeability Info</a><br/>
+      <a href="ClassUtility.html">Utility</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

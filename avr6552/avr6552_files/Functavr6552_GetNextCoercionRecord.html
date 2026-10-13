@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_GetNextCoercionRecord</title>
+  </head>
+  <body>
+    <h1>avr6552_GetNextCoercionRecord</h1>
+    <p class="syntax">
+      ViStatus avr6552_GetNextCoercionRecord (ViSession instrumentHandle,
+                                        ViInt32 bufferSize,
+                                        ViChar _VI_FAR coercionRecord[]);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function returns the coercion information associated with the IVI session.&nbsp;&nbsp;This function retrieves and clears the oldest instance in which the instrument driver coerced a value you specified to another value.
+    <br/>
+    If you set the AVR6552_ATTR_RECORD_COERCIONS attribute to VI_TRUE, the instrument driver keeps a list of all coercions it makes on ViInt32 or ViReal64 values you pass to instrument driver functions.&nbsp;&nbsp;You use this function to retrieve information from that list.
+    <br/>
+    If the next coercion record string, including the terminating NUL byte, contains more bytes than you indicate in this parameter, the function copies Buffer Size - 1 bytes into the buffer, places an ASCII NUL byte at the end of the buffer, and returns the buffer size you must pass to get the entire value.&nbsp;&nbsp;For example, if the value is &quot;123456&quot; and the Buffer Size is 4, the function places &quot;123&quot; into the buffer and returns 7.
+    <br/>
+    If you pass a negative number, the function copies the value to the buffer regardless of the number of bytes in the value.
+    <br/>
+    If you pass 0, you can pass VI_NULL for the Coercion Record buffer parameter.
+    <br/>
+    The function returns an empty string in the Coercion Record parameter if no coercion records remain for the session.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">bufferSize</td>
+        <td class="paramDataType">ViInt32</td>
+        <td>
+    Pass the number of bytes in the ViChar array you specify for the Coercion Record parameter.
+    <br/>
+    If the next coercion record string, including the terminating NUL byte, contains more bytes than you indicate in this parameter, the function copies Buffer Size - 1 bytes into the buffer, places an ASCII NUL byte at the end of the buffer, and returns the buffer size you must pass to get the entire value.&nbsp;&nbsp;For example, if the value is &quot;123456&quot; and the Buffer Size is 4, the function places &quot;123&quot; into the buffer and returns 7.
+    <br/>
+    If you pass a negative number, the function copies the value to the buffer regardless of the number of bytes in the value.
+    <br/>
+    If you pass 0, you can pass VI_NULL for the Coercion Record buffer parameter.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><em class="label">Output</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">coercionRecord</td>
+        <td class="paramDataType">ViChar[]</td>
+        <td>
+    Returns the next coercion record for the IVI session.&nbsp;&nbsp;If there are no coercion records, the function returns an empty string.
+    <br/>
+    The buffer must contain at least as many elements as the value you specify with the Buffer Size parameter.&nbsp;&nbsp;If the next coercion record string, including the terminating NUL byte, contains more bytes than you indicate with the Buffer Size parameter, the function copies Buffer Size - 1 bytes into the buffer, places an ASCII NUL byte at the end of the buffer, and returns the buffer size you must pass to get the entire value.&nbsp;&nbsp;For example, if the value is &quot;123456&quot; and the Buffer Size is 4, the function places &quot;123&quot; into the buffer and returns 7.
+    <br/>
+    This parameter returns an empty string if no coercion records remain for the session.
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">statusOrRequiredSize</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    If the current value of the return buffer, including the terminating NUL byte, is larger than the size you indicate in the Buffer Size parameter, the function copies Buffer Size - 1 bytes into the buffer, places an ASCII NUL byte at the end of the buffer, and returns the buffer size you must pass to get the entire value.&nbsp;&nbsp;For example, if the value is &quot;123456&quot; and the Buffer Size is 4, the function places &quot;123&quot; into the buffer and returns 7.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassCoercion%20Info.html">Coercion Info</a><br/>
+      <a href="ClassUtility.html">Utility</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

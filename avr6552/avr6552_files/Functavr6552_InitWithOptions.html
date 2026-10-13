@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_InitWithOptions</title>
+  </head>
+  <body>
+    <h1>avr6552_InitWithOptions</h1>
+    <p class="syntax">
+      ViStatus avr6552_InitWithOptions (ViRsrc resourceName, ViBoolean IDQuery,
+                                  ViBoolean resetDevice,
+                                  ViChar _VI_FAR optionString[],
+                                  ViPSession instrumentHandle);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function performs the following initialization actions:
+    <br/>
+    - Creates a new IVI instrument driver and optionally sets the initial state of the following session attributes:
+    <br/>
+    AVR6552_ATTR_RANGE_CHECK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    AVR6552_ATTR_QUERY_INSTRUMENT_STATUS&nbsp;&nbsp;
+    <br/>
+    AVR6552_ATTR_CACHE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    AVR6552_ATTR_SIMULATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    AVR6552_ATTR_RECORD_COERCIONS&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    - Opens a session to the specified device using the interface and address you specify for the Resource Name parameter.
+    <br/>
+    - If the ID Query parameter is set to VI_TRUE, this function queries the instrument ID and checks that it is valid for this instrument driver.
+    <br/>
+    - If the Reset parameter is set to VI_TRUE, this function resets the instrument to a known state.
+    <br/>
+    - Sends initialization commands to set the instrument to the state necessary for the operation of the instrument driver.
+    <br/>
+    - Returns a ViSession handle that you use to identify the instrument in all subsequent instrument driver function calls.
+    <br/>
+    Note:&nbsp;&nbsp;This function creates a new session each time you invoke it. Although you can open more than one IVI session for the same resource, it is best not to do so.&nbsp;&nbsp;You can use the same session in multiple program threads.&nbsp;&nbsp;You can use the avr6552_LockSession and avr6552_UnlockSession functions to protect sections of code that require exclusive access to the resource.
+    <br/>
+    Content from the IVI specifications reproduced with permission from the IVI Foundation.
+    <br/>
+    The IVI Foundation and its member companies make no warranty of any kind with regard to this material, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The IVI Foundation and its member companies shall not be liable for errors contained herein or for incidental or consequential damages in connection with the furnishing, performance, or use of this material.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">resourceName</td>
+        <td class="paramDataType">ViRsrc</td>
+        <td>
+    Pass the resource name of the device to initialize.
+    <br/>
+    You can also pass the name of a virtual instrument or logical name that you configure with the IVI Configuration utility.&nbsp;&nbsp;The virtual instrument identifies a specific device and specifies the initial settings for the session.&nbsp;&nbsp;A logical Name identifies a particular virtual instrument.
+    <br/>
+    Refer to the following table below for the exact grammar to use for this parameter.&nbsp;&nbsp;Optional fields are shown in square brackets ([]).
+    <br/>
+    Syntax
+    <br/>
+    ------------------------------------------------------
+    <br/>
+    GPIB[board]::&lt;primary address&gt;[::secondary address]::INSTR
+    <br/>
+    VXI[board]::&lt;logical address&gt;::INSTR
+    <br/>
+    GPIB-VXI[board]::&lt;logical address&gt;::INSTR
+    <br/>
+    ASRL&lt;port&gt;::INSTR
+    <br/>
+    &lt;LogicalName&gt;
+    <br/>
+    If you do not specify a value for an optional field, the following values are used:
+    <br/>
+    Optional Field - Value
+    <br/>
+    ------------------------------------------------------
+    <br/>
+    board - 0
+    <br/>
+    secondary address - none (31)
+    <br/>
+    The following table contains example valid values for this parameter.
+    <br/>
+    &quot;Valid Value&quot; - Description
+    <br/>
+    ------------------------------------------------------
+    <br/>
+    &quot;GPIB::22::INSTR&quot; - GPIB board 0, primary address 22 no
+    <br/>
+    secondary address
+    <br/>
+    &quot;GPIB::22::5::INSTR&quot; - GPIB board 0, primary address 22
+    <br/>
+    secondary address 5
+    <br/>
+    &quot;GPIB1::22::5::INSTR&quot; - GPIB board 1, primary address 22
+    <br/>
+    secondary address 5
+    <br/>
+    &quot;VXI::64::INSTR&quot; - VXI board 0, logical address 64
+    <br/>
+    &quot;VXI1::64::INSTR&quot; - VXI board 1, logical address 64
+    <br/>
+    &quot;GPIB-VXI::64::INSTR&quot; - GPIB-VXI board 0, logical address 64
+    <br/>
+    &quot;GPIB-VXI1::64::INSTR&quot; - GPIB-VXI board 1, logical address 64
+    <br/>
+    &quot;ASRL2::INSTR&quot; - COM port 2
+    <br/>
+    &quot;SampleInstr&quot; - Logical name &quot;SampleInstr&quot;
+    <br/>
+    Default Value:&nbsp;&nbsp;&quot;GPIB::2::INSTR&quot;
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">IDQuery</td>
+        <td class="paramDataType">ViBoolean</td>
+        <td>
+    Specify whether you want the instrument driver to perform an ID Query.
+    <br/>
+    Valid Range:
+    <br/>
+    VI_TRUE&nbsp;&nbsp;(1) - Perform ID Query (Default Value)
+    <br/>
+    VI_FALSE (0) - Skip ID Query
+    <br/>
+    When you set this parameter to VI_TRUE, the driver verifies that the instrument you initialize is a type that this driver supports.&nbsp;&nbsp;
+    <br/>
+    Circumstances can arise where it is undesirable to send an ID Query command string to the instrument.&nbsp;&nbsp;When you set this parameter to VI_FALSE, the function initializes the instrument without performing an ID Query.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">resetDevice</td>
+        <td class="paramDataType">ViBoolean</td>
+        <td>
+    Specify whether you want the to reset the instrument during the initialization procedure.
+    <br/>
+    Valid Range:
+    <br/>
+    VI_TRUE&nbsp;&nbsp;(1) - Reset Device (Default Value)
+    <br/>
+    VI_FALSE (0) - Don't Reset
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">optionString</td>
+        <td class="paramDataType">ViChar[]</td>
+        <td>
+    You can use this control to set the initial value of certain attributes for the session.&nbsp;&nbsp;The following table lists the attributes and the name you use in this parameter to identify the attribute.
+    <br/>
+    Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attribute Defined Constant&nbsp;&nbsp;&nbsp;
+    <br/>
+    --------------------------------------------
+    <br/>
+    RangeCheck&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVR6552_ATTR_RANGE_CHECK
+    <br/>
+    QueryInstrStatus&nbsp;&nbsp;AVR6552_ATTR_QUERY_INSTRUMENT_STATUS&nbsp;&nbsp;&nbsp;
+    <br/>
+    Cache&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVR6552_ATTR_CACHE&nbsp;&nbsp;&nbsp;
+    <br/>
+    Simulate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVR6552_ATTR_SIMULATE&nbsp;&nbsp;
+    <br/>
+    RecordCoercions&nbsp;&nbsp;&nbsp;AVR6552_ATTR_RECORD_COERCIONS
+    <br/>
+    The format of this string is, &quot;AttributeName=Value&quot; where AttributeName is the name of the attribute and Value is the value to which the attribute will be set.&nbsp;&nbsp;To set multiple attributes, separate their assignments with a comma.
+    <br/>
+    If you pass NULL or an empty string for this parameter and a VISA resource descriptor for the Resource Name parameter, the session uses the default values for the attributes. The default values for the attributes are shown below:
+    <br/>
+    Attribute Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default Value
+    <br/>
+    ----------------&nbsp;&nbsp;&nbsp;-------------
+    <br/>
+    RangeCheck&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VI_TRUE
+    <br/>
+    QueryInstrStatus&nbsp;&nbsp;&nbsp;VI_TRUE
+    <br/>
+    Cache&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VI_TRUE
+    <br/>
+    Simulate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VI_FALSE
+    <br/>
+    RecordCoercions&nbsp;&nbsp;&nbsp;&nbsp;VI_FALSE
+    <br/>
+    If you pass NULL or an empty string for this parameter and a virtual instrument or logical name for the Resource Name parameter, the session uses the values that you configure for virtual instrument or logical name with the IVI Configuration utility.
+    <br/>
+    You can override the values of the attributes by assigning a value explicitly in a string you pass for this parameter.&nbsp;&nbsp;You do not have to specify all of the attributes and may leave any of them out.&nbsp;&nbsp;If you do not specify one of the attributes, its default value or the value that you configure with the IVI Configuration utility will be used.
+    <br/>
+    The following are the valid values for ViBoolean attributes:
+    <br/>
+    True:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1, TRUE, or VI_TRUE
+    <br/>
+    False:&nbsp;&nbsp;&nbsp;&nbsp;0, False, or VI_FALSE
+    <br/>
+    You may also specify a DriverSetup option that allows you to select which Advantest R6552 DMM model the instrument driver emulates.
+    <br/>
+    The format for the DriverSetup option is
+    <br/>
+    &quot;DriverSetup= Tag1:Value1;Tag2:Value2;Tag3:Value3&quot;.
+    <br/>
+    The driver emulates the model specified in the DriverSetup option even when you specify that you want the instrument driver to perform an ID Query.&nbsp;&nbsp;If you specify simulation or that you do not want an ID Query and you do not specify a model with this option, the driver emulates the Advantest R6552.
+    <br/>
+    The following are valid values for the DriverSetup option:
+    <br/>
+    Model:R6552
+    <br/>
+    Model:R6552T
+    <br/>
+    Model:R6552T-R
+    <br/>
+    Here is an example of this option string which turns on simulation and emulates the Advantest R6552T:
+    <br/>
+    &quot;Simulate=1,DriverSetup=Model:R6552T&quot;
+    <br/>
+    Default Value:
+    <br/>
+    &quot;Simulate=0,RangeCheck=1,QueryInstrStatus=0,Cache=1&quot;
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><em class="label">Output</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession (passed by reference)</td>
+        <td>
+    Returns a ViSession handle that you use to identify the instrument in all subsequent instrument driver function calls.
+    <br/>
+    Notes:
+    <br/>
+    (1) This function creates a new session each time you invoke it.&nbsp;&nbsp;This is useful if you have multiple physical instances of the same type of instrument.&nbsp;&nbsp;
+    <br/>
+    (2) Avoid creating multiple concurrent sessions to the same physical instrument.&nbsp;&nbsp;Although you can create more than one IVI session for the same resource, it is best not to do so.&nbsp;&nbsp;A better approach is to use the same IVI session in multiple execution threads.&nbsp;&nbsp;You can use functions avr6552_LockSession and avr6552_UnlockSession to protect sections of code that require exclusive access to the resource.
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

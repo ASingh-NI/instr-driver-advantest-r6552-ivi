@@ -1,0 +1,100 @@
+IVI Compliance Category:
+-----------------------
+
+IVI-C IviDmm Specific Instrument Driver 
+
+Class Specification version:	3.00
+IVI Generation: 
+Group Capabilities Supported:
+
+Base 				= Supported
+ACMeasurement 			= Supported
+FrequencyMeasurement 		= Supported
+AutoZero 			= Supported
+PowerLineFrequency 		= Not Supported
+TemperatureMeasurement 		= Not Supported
+Thermocouple 			= Not Supported
+ResistanceTemperatureDevice 	= Not Supported
+Thermistor 			= Not Supported
+MultiPoint 			= Not Supported
+TriggerSlope 			= Not Supported
+SoftwareTrigger 		= Not Supported
+DeviceInfo 			= Not Supported
+AutoRangeValue 			= Not Supported
+
+
+Optional Features:
+-----------------
+Interchangeability Checking 	= True
+State Caching 			= True
+Coercion Recording		= True
+
+
+Driver Identification:
+---------------------
+Driver Revision:                          3.0
+Driver Vendor:                            National Instruments
+Prefix:                                   avr6552
+Description:                              Digital Multimeter
+
+
+Driver Release Information:
+--------------------------
+Original Release Date:                    05/10/2000 
+Update Release Date:                      10/20/2013 
+
+
+Hardware Information:
+--------------------
+Instrument Manufacturer:                  Advantest
+Supported Instrument Models:              R6552, R6552T, R6552T-R
+Supported Bus Interfaces:                 GPIB
+
+
+32-bit Software Information:
+--------------------
+Supported Operating Systems:              Windows 7 (32-bit), Windows 7 (64-bit), Windows 8 (32-bit), Windows 8 (64-bit)
+                                          Windows 10 (32-bit), Windows 10 (64-bit)
+Support Software Required:                IVI Compliance Package 4.6.1, VISA 5.2 or later
+Source Code Availability:                 Available
+
+
+64-bit Software Information:
+--------------------
+Supported Operating Systems:              Windows 7 (64-bit), Windows 8 (64-bit), Windows 10 (64-bit)
+Unsupported Operation Systems:            N/A
+Support Software Required:                IVI Compliance Package 4.6.1, VISA 5.2 or later
+Source Code Availability:                 Available
+
+
+Unit Testing
+--------------------
+Test Setup 1:
+
+Instrument Model (Firmware Revision):    
+Bus Interface:                            
+Operating System (Service Pack):         
+OS Bitness/Application Bitness:          
+VISA Vendor and Version:                  
+IVI Shared Components Version:            
+
+
+Driver Installation Testing:
+--------------------
+Operating System (Service Pack):          
+OS Bitness:                               
+
+
+Driver Buildability:
+--------------------
+Operating System (Service Pack):          
+OS Bitness:                               
+
+
+Driver Test Failures:
+--------------------
+Known Issues:  		None
+
+Note:
+National Instruments has evaluated and/or tested this driver to verify that it meets all applicable requirements of the IVI specifications at the time this compliance document was submitted to the IVI Foundation and agrees to abide by the dispute arbitration provisions in Section 8 of IVI-1.2: Operating Procedures, if the IVI Foundation finds this driver to be non-conformant.
+

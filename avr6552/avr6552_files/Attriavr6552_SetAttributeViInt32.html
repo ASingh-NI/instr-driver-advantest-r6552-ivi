@@ -1,0 +1,1757 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>Attributes</title>
+  </head>
+  <body>
+    <h1>Attributes</h1>
+    <p>Attribute information for the following functions:</p>
+    <ul class="list-index">
+    <li><a href="Functavr6552_SetAttributeViInt32.html">avr6552_SetAttributeViInt32</a></li>
+    <li><a href="Functavr6552_GetAttributeViInt32.html">avr6552_GetAttributeViInt32</a></li>
+    <li><a href="Functavr6552_CheckAttributeViInt32.html">avr6552_CheckAttributeViInt32</a></li>
+    <li><a href="Functavr6552_SetAttributeViReal64.html">avr6552_SetAttributeViReal64</a></li>
+    <li><a href="Functavr6552_GetAttributeViReal64.html">avr6552_GetAttributeViReal64</a></li>
+    <li><a href="Functavr6552_CheckAttributeViReal64.html">avr6552_CheckAttributeViReal64</a></li>
+    <li><a href="Functavr6552_SetAttributeViSession.html">avr6552_SetAttributeViSession</a></li>
+    <li><a href="Functavr6552_GetAttributeViSession.html">avr6552_GetAttributeViSession</a></li>
+    <li><a href="Functavr6552_CheckAttributeViSession.html">avr6552_CheckAttributeViSession</a></li>
+    <li><a href="Functavr6552_SetAttributeViBoolean.html">avr6552_SetAttributeViBoolean</a></li>
+    <li><a href="Functavr6552_GetAttributeViBoolean.html">avr6552_GetAttributeViBoolean</a></li>
+    <li><a href="Functavr6552_CheckAttributeViBoolean.html">avr6552_CheckAttributeViBoolean</a></li>
+    <li><a href="Functavr6552_SetAttributeViString.html">avr6552_SetAttributeViString</a></li>
+    <li><a href="Functavr6552_GetAttributeViString.html">avr6552_GetAttributeViString</a></li>
+    <li><a href="Functavr6552_CheckAttributeViString.html">avr6552_CheckAttributeViString</a>    <table class="borderless" summary="Attribute organization">
+<tr><td> Inherent IVI Attributes</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp; User Options</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Range Check</td>
+      <td><a href="#AVR6552_ATTR_RANGE_CHECK">AVR6552_ATTR_RANGE_CHECK</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query Instrument Status</td>
+      <td><a href="#AVR6552_ATTR_QUERY_INSTRUMENT_STATUS">AVR6552_ATTR_QUERY_INSTRUMENT_STATUS</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cache</td>
+      <td><a href="#AVR6552_ATTR_CACHE">AVR6552_ATTR_CACHE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Simulate</td>
+      <td><a href="#AVR6552_ATTR_SIMULATE">AVR6552_ATTR_SIMULATE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Record Value Coercions</td>
+      <td><a href="#AVR6552_ATTR_RECORD_COERCIONS">AVR6552_ATTR_RECORD_COERCIONS</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Interchange Check</td>
+      <td><a href="#AVR6552_ATTR_INTERCHANGE_CHECK">AVR6552_ATTR_INTERCHANGE_CHECK</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Driver Identification</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description</td>
+      <td><a href="#AVR6552_ATTR_SPECIFIC_DRIVER_DESCRIPTION">AVR6552_ATTR_SPECIFIC_DRIVER_DESCRIPTION</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Driver Prefix</td>
+      <td><a href="#AVR6552_ATTR_SPECIFIC_DRIVER_PREFIX">AVR6552_ATTR_SPECIFIC_DRIVER_PREFIX</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Driver Vendor</td>
+      <td><a href="#AVR6552_ATTR_SPECIFIC_DRIVER_VENDOR">AVR6552_ATTR_SPECIFIC_DRIVER_VENDOR</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Revision</td>
+      <td><a href="#AVR6552_ATTR_SPECIFIC_DRIVER_REVISION">AVR6552_ATTR_SPECIFIC_DRIVER_REVISION</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class Specification Major Version</td>
+      <td><a href="#AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION">AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class Specification Minor Version</td>
+      <td><a href="#AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION">AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Driver Capabilities</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Supported Instrument Models</td>
+      <td><a href="#AVR6552_ATTR_SUPPORTED_INSTRUMENT_MODELS">AVR6552_ATTR_SUPPORTED_INSTRUMENT_MODELS</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class Group Capabilities</td>
+      <td><a href="#AVR6552_ATTR_GROUP_CAPABILITIES">AVR6552_ATTR_GROUP_CAPABILITIES</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Channels</td>
+      <td><a href="#AVR6552_ATTR_CHANNEL_COUNT">AVR6552_ATTR_CHANNEL_COUNT</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Instrument Identification</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Manufacturer</td>
+      <td><a href="#AVR6552_ATTR_INSTRUMENT_MANUFACTURER">AVR6552_ATTR_INSTRUMENT_MANUFACTURER</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Model</td>
+      <td><a href="#AVR6552_ATTR_INSTRUMENT_MODEL">AVR6552_ATTR_INSTRUMENT_MODEL</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Firmware Revision</td>
+      <td><a href="#AVR6552_ATTR_INSTRUMENT_FIRMWARE_REVISION">AVR6552_ATTR_INSTRUMENT_FIRMWARE_REVISION</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Advanced Session Information</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Driver Setup</td>
+      <td><a href="#AVR6552_ATTR_DRIVER_SETUP">AVR6552_ATTR_DRIVER_SETUP</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Logical Name</td>
+      <td><a href="#AVR6552_ATTR_LOGICAL_NAME">AVR6552_ATTR_LOGICAL_NAME</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Resource Descriptor</td>
+      <td><a href="#AVR6552_ATTR_IO_RESOURCE_DESCRIPTOR">AVR6552_ATTR_IO_RESOURCE_DESCRIPTOR</a></td>
+    </tr>
+<tr><td> Basic Operation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Function</td>
+      <td><a href="#AVR6552_ATTR_FUNCTION">AVR6552_ATTR_FUNCTION</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Range</td>
+      <td><a href="#AVR6552_ATTR_RANGE">AVR6552_ATTR_RANGE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Resolution</td>
+      <td><a href="#AVR6552_ATTR_RESOLUTION_ABSOLUTE">AVR6552_ATTR_RESOLUTION_ABSOLUTE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Digits Resolution</td>
+      <td><a href="#AVR6552_ATTR_RESOLUTION">AVR6552_ATTR_RESOLUTION</a></td>
+    </tr>
+<tr><td> Sample Rate</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Sample Rate</td>
+      <td><a href="#AVR6552_ATTR_SAMPLE_RATE">AVR6552_ATTR_SAMPLE_RATE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Integral Time</td>
+      <td><a href="#AVR6552_ATTR_INTEGRAL_TIME">AVR6552_ATTR_INTEGRAL_TIME</a></td>
+    </tr>
+<tr><td> Trigger</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Trigger Source</td>
+      <td><a href="#AVR6552_ATTR_TRIGGER_SOURCE">AVR6552_ATTR_TRIGGER_SOURCE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Trigger Delay</td>
+      <td><a href="#AVR6552_ATTR_TRIGGER_DELAY">AVR6552_ATTR_TRIGGER_DELAY</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Trigger Operations</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Mode</td>
+      <td><a href="#AVR6552_ATTR_SAMPLE_MODE">AVR6552_ATTR_SAMPLE_MODE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delay</td>
+      <td><a href="#AVR6552_ATTR_DELAY">AVR6552_ATTR_DELAY</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hold Sample Count</td>
+      <td><a href="#AVR6552_ATTR_HOLD_SAMPLE_COUNT">AVR6552_ATTR_HOLD_SAMPLE_COUNT</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Burst Count</td>
+      <td><a href="#AVR6552_ATTR_BURST_COUNT">AVR6552_ATTR_BURST_COUNT</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delayed Trigger</td>
+      <td><a href="#AVR6552_ATTR_DELAYED_TRIGGER">AVR6552_ATTR_DELAYED_TRIGGER</a></td>
+    </tr>
+<tr><td> AC Measurements</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; AC Maximum Frequency</td>
+      <td><a href="#AVR6552_ATTR_AC_MAX_FREQ">AVR6552_ATTR_AC_MAX_FREQ</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; AC Minimum Frequency</td>
+      <td><a href="#AVR6552_ATTR_AC_MIN_FREQ">AVR6552_ATTR_AC_MIN_FREQ</a></td>
+    </tr>
+<tr><td> Frequency Measurements</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Frequency Voltage Range</td>
+      <td><a href="#AVR6552_ATTR_FREQ_VOLTAGE_RANGE">AVR6552_ATTR_FREQ_VOLTAGE_RANGE</a></td>
+    </tr>
+<tr><td> Ripple Voltage Measurements</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Low Pass Filter</td>
+      <td><a href="#AVR6552_ATTR_LOW_PASS_FILTER">AVR6552_ATTR_LOW_PASS_FILTER</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; High Pass Filter</td>
+      <td><a href="#AVR6552_ATTR_HIGH_PASS_FILTER">AVR6552_ATTR_HIGH_PASS_FILTER</a></td>
+    </tr>
+<tr><td> Measurement Operation Options</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Auto Zero</td>
+      <td><a href="#AVR6552_ATTR_AUTO_ZERO">AVR6552_ATTR_AUTO_ZERO</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; Powerline Frequency</td>
+      <td><a href="#AVR6552_ATTR_POWERLINE_FREQ">AVR6552_ATTR_POWERLINE_FREQ</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Null Calculation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Null Calculation Enabled</td>
+      <td><a href="#AVR6552_ATTR_NULL_ENABLED">AVR6552_ATTR_NULL_ENABLED</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Null Offset</td>
+      <td><a href="#AVR6552_ATTR_NULL_OFFSET">AVR6552_ATTR_NULL_OFFSET</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Smoothing Calculation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Smoothing Enabled</td>
+      <td><a href="#AVR6552_ATTR_SMOOTH_ENABLED">AVR6552_ATTR_SMOOTH_ENABLED</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Smooth Count</td>
+      <td><a href="#AVR6552_ATTR_SMOOTH_COUNT">AVR6552_ATTR_SMOOTH_COUNT</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Comparison Calculation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compare Enabled</td>
+      <td><a href="#AVR6552_ATTR_COMPARE_ENABLED">AVR6552_ATTR_COMPARE_ENABLED</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compare High Constant Value</td>
+      <td><a href="#AVR6552_ATTR_COMPARE_HIGH_VAL">AVR6552_ATTR_COMPARE_HIGH_VAL</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compare Low Constant Value</td>
+      <td><a href="#AVR6552_ATTR_COMPARE_LOW_VAL">AVR6552_ATTR_COMPARE_LOW_VAL</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Scaling Calculation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scaling Enabled</td>
+      <td><a href="#AVR6552_ATTR_SCALE_ENABLED">AVR6552_ATTR_SCALE_ENABLED</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A Value for Scale Operation</td>
+      <td><a href="#AVR6552_ATTR_SCALE_A">AVR6552_ATTR_SCALE_A</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B Value for Scale Operation</td>
+      <td><a href="#AVR6552_ATTR_SCALE_B">AVR6552_ATTR_SCALE_B</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C Value for Scale Operation</td>
+      <td><a href="#AVR6552_ATTR_SCALE_C">AVR6552_ATTR_SCALE_C</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; Max-Min Calculation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Max Min Enabled</td>
+      <td><a href="#AVR6552_ATTR_MAX_MIN_ENABLED">AVR6552_ATTR_MAX_MIN_ENABLED</a></td>
+    </tr>
+<tr><td>&nbsp;&nbsp;&nbsp; dB/dBm Calculation</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dB Mode</td>
+      <td><a href="#AVR6552_ATTR_DB_MODE">AVR6552_ATTR_DB_MODE</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DB/DBM Constant</td>
+      <td><a href="#AVR6552_ATTR_DB_CONSTANT">AVR6552_ATTR_DB_CONSTANT</a></td>
+    </tr>
+<tr><td> Miscellaneous Attributes</td></tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp; ID Query Response</td>
+      <td><a href="#AVR6552_ATTR_ID_QUERY_RESPONSE">AVR6552_ATTR_ID_QUERY_RESPONSE</a></td>
+    </tr>
+    </table>
+    </li></ul>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_AC_MAX_FREQ">AVR6552_ATTR_AC_MAX_FREQ</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the maximum frequency component of the input signal for AC measurements. The value of this attribute affects instrument behavior only when you set the AVR6552_ATTR_FUNCTION attribute to one of the following values:
+    <br/>
+    AVR6552_VAL_AC_VOLTS
+    <br/>
+    AVR6552_VAL_AC_CURRENT
+    <br/>
+    AVR6552_VAL_AC_PLUS_DC_VOLTS
+    <br/>
+    AVR6552_VAL_AC_PLUS_DC_CURRENT
+    <br/>
+    Attribute Value: 1250007
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_AC_MIN_FREQ">AVR6552_ATTR_AC_MIN_FREQ</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the minimum frequency component of the input signal for AC measurements.&nbsp;&nbsp;The value of this attribute affects instrument behavior only when you set the AVR6552_ATTR_FUNCTION attribute to one of the following values:
+    <br/>
+    AVR6552_VAL_AC_VOLTS
+    <br/>
+    AVR6552_VAL_AC_CURRENT
+    <br/>
+    AVR6552_VAL_AC_PLUS_DC_VOLTS
+    <br/>
+    AVR6552_VAL_AC_PLUS_DC_CURRENT
+    <br/>
+    Attribute Value: 1250006
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>300.0</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>20.0</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_AUTO_ZERO">AVR6552_ATTR_AUTO_ZERO</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the auto-zero mode.&nbsp;&nbsp;In general, the auto-zero capability of a DMM normalizes all measurements based on a Zero Reading.&nbsp;&nbsp;When auto-zeroing is enabled, the DMM internally disconnects the input signal and takes a Zero Reading.&nbsp;&nbsp;The DMM then subtracts the Zero Reading from the measurement.&nbsp;&nbsp;This prevents offset voltages present in the DMM's input circuitry from affecting measurement accuracy.
+    <br/>
+    Attribute Value: 1250332
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_AUTO_ZERO_OFF</td>
+        <td>
+    Disables the DMM from taking any more Zero Readings.&nbsp;&nbsp;The DMM subtract the last Zero Reading from all subsequent values it measures.
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_AUTO_ZERO_ON</td>
+        <td>
+    Configures the DMM to take a Zero Reading for each measurement.&nbsp;&nbsp;The DMM subtracts the Zero Reading from the value it measures.
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_AUTO_ZERO_ONCE</td>
+        <td>
+    Configures the DMM to take a Zero Reading immediately.&nbsp;&nbsp;The DMM then subtracts this Zero Reading from all subsequent values it measures.
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_BURST_COUNT">AVR6552_ATTR_BURST_COUNT</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the measurement count to transfer to the internal memory in burst sample mode.
+    <br/>
+    Notes:&nbsp;&nbsp;
+    <br/>
+    (1)&nbsp;&nbsp;This attribute does not affect the behavior of the instrument if the sample mode is not set to burst mode.
+    <br/>
+    (2)&nbsp;&nbsp;This attribute is supported only by AVR6552.
+    <br/>
+    Attribute Value: 1150006
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>1000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>2000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>3000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>4000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>5000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>6000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>7000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>8000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>9000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>10000</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_CACHE">AVR6552_ATTR_CACHE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies whether to cache the value of attributes.&nbsp;&nbsp;When caching is enabled, the instrument driver keeps track of the current instrument settings and avoids sending redundant commands to the instrument.&nbsp;&nbsp;Thus, you can significantly increase execution speed.
+    <br/>
+    The instrument driver can choose always to cache or never to cache particular attributes regardless of the setting of this attribute.
+    <br/>
+    The default value is VI_TRUE.&nbsp;&nbsp;&nbsp;Use the avr6552_InitWithOptions function to override this value.
+    <br/>
+    Attribute Value: 1050004
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_CHANNEL_COUNT">AVR6552_ATTR_CHANNEL_COUNT</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Indicates the number of channels that the specific instrument driver supports.&nbsp;&nbsp;
+    <br/>
+    For each attribute for which the IVI_VAL_MULTI_CHANNEL flag attribute is set, the IVI engine maintains a separate cache value for each channel.
+    <br/>
+    Attribute Value: 1050203
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_COMPARE_ENABLED">AVR6552_ATTR_COMPARE_ENABLED</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Enable/Disable Comparison calculation.
+    <br/>
+    Attribute Value: 1150024
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_COMPARE_HIGH_VAL">AVR6552_ATTR_COMPARE_HIGH_VAL</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the high value for comparison calculation.
+    <br/>
+    Attribute Value: 1150013
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_COMPARE_LOW_VAL">AVR6552_ATTR_COMPARE_LOW_VAL</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the low value for comparison calculation.
+    <br/>
+    Attribute Value: 1150014
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_DB_CONSTANT">AVR6552_ATTR_DB_CONSTANT</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the constant for dB and dBm operation.
+    <br/>
+    Attribute Value: 1150018
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_DB_MODE">AVR6552_ATTR_DB_MODE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the decible conversion to perform.
+    <br/>
+    Defined Values:
+    <br/>
+    AVR6552_VAL_DB_OFF - Disable the dB/dBm calculation
+    <br/>
+    AVR6552_VAL_DB_ON&nbsp;&nbsp;- Enable the dB calculation
+    <br/>
+    AVR6552_VAL_DBM_ON - Enable the dBm calculation
+    <br/>
+    Notes:
+    <br/>
+    (1) The dB calculation executes a decibel converison. It is functional only during voltage measurements.
+    <br/>
+    (2) The dBm calculation is useful for calculating the power gain&nbsp;&nbsp;per mV. It is functional only during voltage measurements.
+    <br/>
+    (3) The db, dBm, and scaling calculations cannot be selected at the same time.
+    <br/>
+    Attribute Value: 1150027
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_DB_OFF</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_DB_ON</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_DBM_ON</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_DELAY">AVR6552_ATTR_DELAY</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the delay the DMM uses for the HOLD and BURST sample modes before it takes a measurement.
+    <br/>
+    Valid Values:&nbsp;&nbsp;0.0 - 99.999 seconds
+    <br/>
+    Attribute Value: 1150003
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_DELAYED_TRIGGER">AVR6552_ATTR_DELAYED_TRIGGER</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the percentage of numbers of premeasurement cycles out of the total burst cycles.
+    <br/>
+    Notes:&nbsp;&nbsp;
+    <br/>
+    (1)&nbsp;&nbsp;This attribute does not affect the behavior of the instrument if the sample mode is not set to burst mode.
+    <br/>
+    (2)&nbsp;&nbsp;This attribute is supported only by AVR6552.
+    <br/>
+    Attribute Value: 1150007
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>0</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>50</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>75</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_DRIVER_SETUP">AVR6552_ATTR_DRIVER_SETUP</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    This attribute indicates the Driver Setup string that the user specified when initializing the driver.
+    <br/>
+    Some cases exist where the end-user must specify instrument driver options at initialization time.&nbsp;&nbsp;An example of this is specifying a particular instrument model from among a family of instruments that the driver supports.&nbsp;&nbsp;This is useful when using simulation.&nbsp;&nbsp;The end-user can specify driver-specific options through the DriverSetup keyword in the optionsString parameter to the avr6552_InitWithOptions function, or through the IVI Configuration Utility.
+    <br/>
+    If the user does not specify a Driver Setup string, this attribute returns an empty string.
+    <br/>
+    Attribute Value: 1050007
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_FREQ_VOLTAGE_RANGE">AVR6552_ATTR_FREQ_VOLTAGE_RANGE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the expected maximum value of the input signal for frequency measurements in volts RMS.
+    <br/>
+    Valid Range: 0.1 - 700.0 volts RMS
+    <br/>
+    Attribute Value: 1250101
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_FUNCTION">AVR6552_ATTR_FUNCTION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the measurement function.
+    <br/>
+    Attribute Value: 1250001
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_GROUP_CAPABILITIES">AVR6552_ATTR_GROUP_CAPABILITIES</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains a comma-separated list of class-extention groups that this driver implements.
+    <br/>
+    Attribute Value: 1050401
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_HIGH_PASS_FILTER">AVR6552_ATTR_HIGH_PASS_FILTER</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the frequency band of HPF (high-pass filter) the DMM uses to measure ripple voltage.
+    <br/>
+    Note:&nbsp;&nbsp;This attribute is supported only by AVR6552T-R.
+    <br/>
+    Attribute Value: 1150019
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_FILTER_OFF</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>10000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>100000</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_HOLD_SAMPLE_COUNT">AVR6552_ATTR_HOLD_SAMPLE_COUNT</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the number of measurements the DMM takes each time it receives a trigger in Hold sample mode.
+    <br/>
+    Valid Values:&nbsp;&nbsp;1 - 9999
+    <br/>
+    Note:&nbsp;&nbsp;This attribute does not affect the behavior of the instrument if the&nbsp;&nbsp;AVR6552_ATTR_SAMPLE_MODE attribute is not set to AVR6552_VAL_HOLD.
+    <br/>
+    Attribute Value: 1150008
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_ID_QUERY_RESPONSE">AVR6552_ATTR_ID_QUERY_RESPONSE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Returns the ID Query response string.&nbsp;&nbsp;The instrument driver gets the value of this attribute when you pass VI_TRUE for the ID Query parameter to the avr6552_init or avr6552_InitWithOptions function.
+    <br/>
+    Attribute Value: 1150001
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_INSTRUMENT_FIRMWARE_REVISION">AVR6552_ATTR_INSTRUMENT_FIRMWARE_REVISION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains the firmware revision information for the instrument you are currently using.
+    <br/>
+    Attribute Value: 1050510
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_INSTRUMENT_MANUFACTURER">AVR6552_ATTR_INSTRUMENT_MANUFACTURER</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains the name of the instrument manufacturer you are currently using.
+    <br/>
+    Attribute Value: 1050511
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_INSTRUMENT_MODEL">AVR6552_ATTR_INSTRUMENT_MODEL</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains the model number or name of the instrument that you are currently using.
+    <br/>
+    Attribute Value: 1050512
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_INTEGRAL_TIME">AVR6552_ATTR_INTEGRAL_TIME</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the integral time for long-it sample rate.&nbsp;&nbsp;The units for this attribute are milliseconds.
+    <br/>
+    Attribute Value: 1150005
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_INTERCHANGE_CHECK">AVR6552_ATTR_INTERCHANGE_CHECK</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies whether to perform interchangeability checking and retrieve interchangeability warnings when you call avr6552_Initiate or avr6552_Read.
+    <br/>
+    The default value is VI_FALSE.
+    <br/>
+    Interchangeability warnings indicate that using your application with a different instrument might cause different behavior.&nbsp;&nbsp;You call avr6552_GetNextInterchangeWarning to extract interchange warnings.&nbsp;&nbsp;Call the avr6552_ClearInterchangeWarnings function to clear the list of interchangeability warnings without reading them.
+    <br/>
+    Interchangeability checking examines the attributes in a capability group only if you specify a value for at least one attribute within that group.&nbsp;&nbsp;Interchangeability warnings can occur when an attribute affects the behavior of the instrument and you have not set that attribute, or the attribute has been invalidated since you set it.
+    <br/>
+    Attribute Value: 1050021
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_IO_RESOURCE_DESCRIPTOR">AVR6552_ATTR_IO_RESOURCE_DESCRIPTOR</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Indicates the resource descriptor the driver uses to identify the physical device.
+    <br/>
+    If you initialize the driver with a logical name, this attribute contains the resource descriptor that corresponds to the entry in the IVI Configuration utility.&nbsp;&nbsp;
+    <br/>
+    If you initialize the instrument driver with the resource descriptor, this attribute contains that value.
+    <br/>
+    Attribute Value: 1050304
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_LOGICAL_NAME">AVR6552_ATTR_LOGICAL_NAME</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string containing the logical name you specified when opening the current IVI session.
+    <br/>
+    You may pass a logical name to the avr6552_init or avr6552_InitWithOptions functions.&nbsp;&nbsp;The IVI Configuration utility must contain an entry for the logical name.&nbsp;&nbsp;The logical name entry refers to a virtual instrument section in the IVI Configuration file.&nbsp;&nbsp;The virtual instrument section specifies a physical device and initial user options.
+    <br/>
+    Attribute Value: 1050305
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_LOW_PASS_FILTER">AVR6552_ATTR_LOW_PASS_FILTER</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the frequency band of LPF (low-pass filter) the DMM uses to measure ripple voltage.
+    <br/>
+    Note:&nbsp;&nbsp;This attribute is supported only by AVR6552T-R.
+    <br/>
+    Attribute Value: 1150020
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_FILTER_OFF</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>10000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>100000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>1000000</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_MAX_MIN_ENABLED">AVR6552_ATTR_MAX_MIN_ENABLED</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Enable/Disable the MaxMin calculation.
+    <br/>
+    Attribute Value: 1150026
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_NULL_ENABLED">AVR6552_ATTR_NULL_ENABLED</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Enable/Disable Null calculation
+    <br/>
+    Attribute Value: 1150022
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_NULL_OFFSET">AVR6552_ATTR_NULL_OFFSET</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the offset for null operation.
+    <br/>
+    Attribute Value: 1150011
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_POWERLINE_FREQ">AVR6552_ATTR_POWERLINE_FREQ</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the power line frequency in Hertz.
+    <br/>
+    The instrument selects the powerline frequency automatically. This attribute cannot be set by the user.
+    <br/>
+    Attribute Value: 1250333
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_50_HERTZ</td>
+        <td>
+    50 Hertz
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_60_HERTZ</td>
+        <td>
+    60 Hertz
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_QUERY_INSTRUMENT_STATUS">AVR6552_ATTR_QUERY_INSTRUMENT_STATUS</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies whether the instrument driver queries the instrument status after each operation.&nbsp;&nbsp;Querying the instrument status is very useful for debugging.&nbsp;&nbsp;After you validate your program, you can set this attribute to VI_FALSE to disable status checking and maximize performance
+    <br/>
+    The instrument driver can choose to ignore status checking for particular attributes regardless of the setting of this attribute.
+    <br/>
+    The default value is VI_TRUE.&nbsp;&nbsp;&nbsp;Use the avr6552_InitWithOptions function to override this value.
+    <br/>
+    Attribute Value: 1050003
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_RANGE">AVR6552_ATTR_RANGE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the measurement range.&nbsp;&nbsp;You use positive values to represent the absolute value of the maximum expected measurement.&nbsp;&nbsp;The value is in units appropriate for the current value of the AVR6552_ATTR_FUNCTION attribute.&nbsp;&nbsp;For example, when you set the AVR6552_ATTR_FUNCTION attribute to AVR6552_VAL_DC_VOLTS, the units are volts.&nbsp;&nbsp;For example, setting this attribute to 10.0 configures the DMM to measure DC voltages from -10.0 to +10.0 volts.
+    <br/>
+    Negative values are reserved for controlling the DMM's auto-ranging capability.
+    <br/>
+    - AVR6552_VAL_AUTO_RANGE_ON (-1.0) - Configures the DMM to calculate the range before each measurement automatically.
+    <br/>
+    For AVR6552, When you set this attribute to AVR6552_VAL_AUTO_RANGE_ON, you cannot obtain the actual range the DMM is currently using.
+    <br/>
+    Note:&nbsp;&nbsp;
+    <br/>
+    (1)&nbsp;&nbsp;For frequency or diode measurements, this attribute must be set to AVR6552_VAL_AUTO_RANGE_ON.&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    (2) This attribute must be set to&nbsp;&nbsp;AVR6552_VAL_AUTO_RANGE_ON in burst measurement mode.
+    <br/>
+    Attribute Value: 1250002
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_RANGE_CHECK">AVR6552_ATTR_RANGE_CHECK</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies whether to validate attribute values and function parameters.&nbsp;&nbsp;If enabled, the instrument driver validates the parameter values that you pass to driver functions.&nbsp;&nbsp;Range checking parameters is very useful for debugging.&nbsp;&nbsp;After you validate your program, you can set this attribute to VI_FALSE to disable range checking and maximize performance.
+    <br/>
+    The default value is VI_TRUE.&nbsp;&nbsp;&nbsp;Use the avr6552_InitWithOptions function to override this value.
+    <br/>
+    Attribute Value: 1050002
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_RECORD_COERCIONS">AVR6552_ATTR_RECORD_COERCIONS</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies whether the IVI engine keeps a list of the value coercions it makes for ViInt32 and ViReal64 attributes.&nbsp;&nbsp;You call avr6552_GetNextCoercionRecord to extract and delete the oldest coercion record from the list.
+    <br/>
+    The default value is VI_FALSE.&nbsp;&nbsp;&nbsp;Use the avr6552_InitWithOptions function to override this value.
+    <br/>
+    Attribute Value: 1050006
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_RESOLUTION">AVR6552_ATTR_RESOLUTION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    This attributes specifies the measurement resolution in digits of precision.
+    <br/>
+    Note:&nbsp;&nbsp;For AVR6552 series, the allowable resolution value depends on the sample rates as well as measurement function as following table shows:
+    <br/>
+    ---------------------------------------------------
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;Measurement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sampling Rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--------------------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;SLOW/MED&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;FAST&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2W/4W Res&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;LP 2/4W Res&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACV (AC+DC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACI (AC+DC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------------|-------------|------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ripple V&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    ---------------------------------------------------
+    <br/>
+    | Measurement |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sampling Rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    | Function&nbsp;&nbsp;&nbsp;&nbsp;|-----------------------------------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;SLOW&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;MED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;FAST&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |-------------|-----------|------------|----------|
+    <br/>
+    |&nbsp;&nbsp;&nbsp;FREQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;6.0&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.0&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;4.0&nbsp;&nbsp;&nbsp;|
+    <br/>
+    ---------------------------------------------------
+    <br/>
+    When sample rate is set to long-it, the same number of digits as those of the MED are displayed.
+    <br/>
+    Attribute Value: 1150028
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_RESOLUTION_ABSOLUTE">AVR6552_ATTR_RESOLUTION_ABSOLUTE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    This attribute configures the measurement resolution of the DMM in absolute units.
+    <br/>
+    Setting this attribute to lower values increases the measurement accuracy.&nbsp;&nbsp;Setting this attribute to higher values increases the measurement speed.
+    <br/>
+    Attribute Value: 1250008
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>10000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>100</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.1</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.01</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.001</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.0001</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.00001</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.000001</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.0000001</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>.00000001</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SAMPLE_MODE">AVR6552_ATTR_SAMPLE_MODE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the sample mode the DMM to use.
+    <br/>
+    Attribute Value: 1150002
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_FREE_RUN</td>
+        <td>
+    Free run sample mode
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_HOLD</td>
+        <td>
+    Hold sample mode
+        </td>
+      </tr>
+      <tr>
+        <td>AVR6552_VAL_BURST</td>
+        <td>
+    Burst sample mode
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SAMPLE_RATE">AVR6552_ATTR_SAMPLE_RATE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the sample rate the DMM uses to acquire a signal.
+    <br/>
+    Attribute Value: 1150004
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SCALE_A">AVR6552_ATTR_SCALE_A</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the first constant (constant A) for scale calculation.
+    <br/>
+    Attribute Value: 1150015
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SCALE_B">AVR6552_ATTR_SCALE_B</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the second constant (constant B) for scale calculation.
+    <br/>
+    Attribute Value: 1150016
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SCALE_C">AVR6552_ATTR_SCALE_C</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the third constant (constant C) for scale calculation.
+    <br/>
+    Attribute Value: 1150017
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SCALE_ENABLED">AVR6552_ATTR_SCALE_ENABLED</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Enable/Disable Scaling
+    <br/>
+    Attribute Value: 1150025
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SIMULATE">AVR6552_ATTR_SIMULATE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies whether or not to simulate instrument driver I/O operations.&nbsp;&nbsp;If simulation is enabled, instrument driver functions perform range checking and call Ivi_GetAttribute and Ivi_SetAttribute functions, but they do not perform instrument I/O.&nbsp;&nbsp;For output parameters that represent instrument data, the instrument driver functions return calculated values.
+    <br/>
+    The default value is VI_FALSE.&nbsp;&nbsp;&nbsp;Use the avr6552_InitWithOptions function to override this value.
+    <br/>
+    Attribute Value: 1050005
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SMOOTH_COUNT">AVR6552_ATTR_SMOOTH_COUNT</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the cycle count for smoothing calculation.
+    <br/>
+    Attribute Value: 1150012
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SMOOTH_ENABLED">AVR6552_ATTR_SMOOTH_ENABLED</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViBoolean</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Enable/Disable Smoothing
+    <br/>
+    Attribute Value: 1150023
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION">AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    The major version number of the class specification with which this driver is compliant.
+    <br/>
+    Attribute Value: 1050515
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION">AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    The minor version number of the class specification with which this driver is compliant.
+    <br/>
+    Attribute Value: 1050516
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SPECIFIC_DRIVER_DESCRIPTION">AVR6552_ATTR_SPECIFIC_DRIVER_DESCRIPTION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains a brief description of the specific driver
+    <br/>
+    Attribute Value: 1050514
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SPECIFIC_DRIVER_PREFIX">AVR6552_ATTR_SPECIFIC_DRIVER_PREFIX</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains the prefix for the instrument driver.&nbsp;&nbsp;The name of each user-callable function in this driver starts with this prefix.
+    <br/>
+    Attribute Value: 1050302
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SPECIFIC_DRIVER_REVISION">AVR6552_ATTR_SPECIFIC_DRIVER_REVISION</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains additional version information about this instrument driver.
+    <br/>
+    Attribute Value: 1050551
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SPECIFIC_DRIVER_VENDOR">AVR6552_ATTR_SPECIFIC_DRIVER_VENDOR</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    A string that contains the name of the vendor that supplies this driver.
+    <br/>
+    Attribute Value: 1050513
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_SUPPORTED_INSTRUMENT_MODELS">AVR6552_ATTR_SUPPORTED_INSTRUMENT_MODELS</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViString</td>
+      </tr>
+      <tr>
+        <td>Restrictions:</td>
+        <td>Not settable.</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Contains a model code of the instrument. For drivers that support more than one device, this attribute contains a comma-separated list of supported instrument models.
+    <br/>
+    Attribute Value: 1050327
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_TRIGGER_DELAY">AVR6552_ATTR_TRIGGER_DELAY</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViReal64</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    Specifies the length of time the DMM waits after it receives the trigger and before it takes a measurement.&nbsp;&nbsp;Use positive values to set the trigger delay in seconds.
+    <br/>
+    Valid Range:&nbsp;&nbsp;0.0 seconds
+    <br/>
+    Note:&nbsp;&nbsp;This attribute does not affect the behavior of the DMM. It exists only for class compliance.
+    <br/>
+    Attribute Value: 1250005
+        </td>
+      </tr>
+    </table>
+    <hr/>
+    <h2><a name="AVR6552_ATTR_TRIGGER_SOURCE">AVR6552_ATTR_TRIGGER_SOURCE</a></h2>
+    <table class="borderless" summary="Attribute help">
+      <tr>
+        <td>Data Type:</td>
+        <td>ViInt32</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>
+    This attribute specifies the trigger source.
+    <br/>
+    Valid Values:
+    <br/>
+    AVR6552_VAL_IMMEDIATE - Immediate (Default)
+    <br/>
+    Attribute Value: 1250004
+        </td>
+      </tr>
+      <tr>
+        <td>Values</td>
+        <td>
+          <table class="borderless" summary="Attribute values">
+      <tr>
+        <td>AVR6552_VAL_IMMEDIATE</td>
+        <td>
+        </td>
+      </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

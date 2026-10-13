@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_FetchBurstMultiPoint</title>
+  </head>
+  <body>
+    <h1>avr6552_FetchBurstMultiPoint</h1>
+    <p class="syntax">
+      ViStatus avr6552_FetchBurstMultiPoint (ViSession instrumentHandle,
+                                       ViInt32 maximumTime_ms,
+                                       ViInt32 arraySize,
+                                       ViReal64 _VI_FAR readingArray[],
+                                       ViPInt32 actualNumberOfPoints);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function returns an array of values from a previously initiated multi-point measurement.&nbsp;&nbsp;The number of measurements the DMM takes is determined by the AVR6552_ATTR_BURST_COUNT attribute.
+    <br/>
+    Use this function if the instrument is in the Burst sample mode.
+    <br/>
+    You must first call the avr6552_Initiate function to initiate a measurement before calling this function.
+    <br/>
+    Notes:
+    <br/>
+    (1) After this function executes, each element in the Reading Array parameter is an actual reading or a value indicating that an over-range condition occurred.
+    <br/>
+    (2) If an over-range condition occurs, the corresponding Reading Array element contains an IEEE defined NaN (Not a Number) value and the function returns AVR6552_WARN_OVER_RANGE (0x3FFA2001).
+    <br/>
+    (3) You can test each element in the Reading Array parameter for over-range with the avr6552_IsOverRange function.
+    <br/>
+    (4) This function does not check the instrument status.&nbsp;&nbsp;&nbsp;Typically, you call this function only in a sequence of calls to other low-level driver functions.&nbsp;&nbsp;The sequence performs one operation.&nbsp;&nbsp;You use the low-level functions to optimize one or more aspects of interaction with the instrument.&nbsp;&nbsp;If you want to check the instrument status, call the avr6552_error_query function at the conclusion of the sequence.
+    <br/>
+    (5) This function is supported only by the AVR6552.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">maximumTime_ms</td>
+        <td class="paramDataType">ViInt32</td>
+        <td>
+    Pass the maximum length of time in which to allow the multi-point fetch operation to complete.&nbsp;&nbsp;Express this value in milliseconds.&nbsp;&nbsp;
+    <br/>
+    If the operation does not complete within this time interval, the function returns the AVR6552_ERROR_MAX_TIME_EXCEEDED (0xBFFA2003) error code.&nbsp;&nbsp;When this occurs, you can call avr6552_Abort to cancel the multi-point fetch operation and return the instrument to the Idle state.&nbsp;&nbsp;
+    <br/>
+    Defined Values:
+    <br/>
+    AVR6552_VAL_MAX_TIME_INFINITE (-1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVR6552_VAL_MAX_TIME_IMMEDIATE (0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    Default Value: 5000 (ms)
+    <br/>
+    Notes:
+    <br/>
+    (1) The Maximum Time parameter affects only this function.&nbsp;&nbsp;It has no effect on other timeout parameters or attributes.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">arraySize</td>
+        <td class="paramDataType">ViInt32</td>
+        <td>
+    Pass the number of elements in the Reading Array parameter.
+    <br/>
+    Default Value: None
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><em class="label">Output</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">readingArray</td>
+        <td class="paramDataType">ViReal64[]</td>
+        <td>
+    Returns an array of the most recent measurement values.&nbsp;&nbsp;The value you specify for the Measurement Function parameter of the avr6552_ConfigureMeasurement function determines the units of this parameter as shown in the following table.
+    <br/>
+    DC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- volts
+    <br/>
+    AC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- volts
+    <br/>
+    DC Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- amperes
+    <br/>
+    AC Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- amperes
+    <br/>
+    2-Wire Resistance&nbsp;&nbsp;- ohms
+    <br/>
+    4-Wire Resistance&nbsp;&nbsp;- ohms
+    <br/>
+    LP 2-Wire Resistance - ohms
+    <br/>
+    LP 4-Wire Resistance - ohms
+    <br/>
+    AC plus DC Volts&nbsp;&nbsp;&nbsp;- volts
+    <br/>
+    AC plus DC Current - amperes
+    <br/>
+    Frequency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- hertz
+    <br/>
+    Diode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- none
+    <br/>
+    Ripple Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- volts
+    <br/>
+    Notes:
+    <br/>
+    (1) The size of the Reading Array must be at least the size you specify for the Array Size parameter.
+    <br/>
+    (2) If an over-range condition occurs, the corresponding Reading Array element contains an IEEE defined NaN (Not a Number) value and the function returns AVR6552_WARN_OVER_RANGE.
+    <br/>
+    (3) You can test each element in the Reading Array parameter for over-range with the avr6552_IsOverRange function.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">actualNumberOfPoints</td>
+        <td class="paramDataType">ViInt32 (passed by reference)</td>
+        <td>
+    Indicates the number of measured values the function places in the Reading Array parameter.
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassLow-Level%20Measurement.html">Low-Level Measurement</a><br/>
+      <a href="ClassMeasurement.html">Measurement</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

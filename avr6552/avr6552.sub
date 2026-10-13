@@ -1,0 +1,1332 @@
+FPAttributeValueFile
+
+n SubType="IVI"
+
+n SubVersion="1"
+
+v CurrentRangeTable DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 0.003 (3.00000000000000E-003)
+  ""
+
+ 0.03 (3.00000000000000E-002)
+  ""
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+
+v FreqDiodeRangeTable DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  ""
+
+
+v RippleVoltsRangeTable DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  ""
+
+ 0.03 (3.00000000000000E-002)
+  ""
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+
+v VACRangeTable DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+ 30.0 (3.00000000000000E+001)
+  ""
+
+ 300.0 (3.00000000000000E+002)
+  ""
+
+ 700.0 (7.00000000000000E+002)
+  ""
+
+
+v VDCRangeTableR6552 DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 0.03 (3.00000000000000E-002)
+  ""
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+ 30.0 (3.00000000000000E+001)
+  ""
+
+ 300.0 (3.00000000000000E+002)
+  ""
+
+ 1000.0 (1.00000000000000E+003)
+  ""
+
+
+v VDCRangeTableR6552T DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 0.03 (3.00000000000000E-002)
+  ""
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+ 30.0 (3.00000000000000E+001)
+  ""
+
+ 200.0 (2.00000000000000E+002)
+  ""
+
+
+v VDCRangeTableR6552TR DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+ 30.0 (3.00000000000000E+001)
+  ""
+
+ 300.0 (3.00000000000000E+002)
+  ""
+
+
+v attrAcMaxFreqRangeTable1 DataType="d"
+ 300000.0 (3.00000000000000E+005)
+  ""
+
+
+v attrAcMaxFreqRangeTable2 DataType="d"
+ 5000.0 (5.00000000000000E+003)
+  ""
+
+
+v attrAcMinFreqRangeTable DataType="d"
+ 300.0 (3.00000000000000E+002)
+  ""
+
+ 20.0 (2.00000000000000E+001)
+  ""
+
+
+v attrAutoZeroRangeTable DataType="i"
+ AVR6552_VAL_AUTO_ZERO_OFF (0)
+  "Disables the DMM from taking any more Zero Readings.  The DMM subtract "
+  "the last Zero Reading from all subsequent values it measures."
+
+ AVR6552_VAL_AUTO_ZERO_ON (1)
+  "Configures the DMM to take a Zero Reading for each measurement.  The DMM "
+  "subtracts the Zero Reading from the value it measures."
+
+ AVR6552_VAL_AUTO_ZERO_ONCE (2)
+  "Configures the DMM to take a Zero Reading immediately.  The DMM then "
+  "subtracts this Zero Reading from all subsequent values it measures."
+
+
+v attrBurstCountRangeTable DataType="i"
+ 1000 (1000)
+  ""
+
+ 2000 (2000)
+  ""
+
+ 3000 (3000)
+  ""
+
+ 4000 (4000)
+  ""
+
+ 5000 (5000)
+  ""
+
+ 6000 (6000)
+  ""
+
+ 7000 (7000)
+  ""
+
+ 8000 (8000)
+  ""
+
+ 9000 (9000)
+  ""
+
+ 10000 (10000)
+  ""
+
+
+v attrDelayedTriggerRangeTable DataType="i"
+ 0 (0)
+  ""
+
+ 25 (25)
+  ""
+
+ 50 (50)
+  ""
+
+ 75 (75)
+  ""
+
+
+v attrFunctionRangeTable DataType="i"
+ AVR6552_VAL_DC_VOLTS (1)
+  "DC Volts"
+
+ AVR6552_VAL_AC_VOLTS (2)
+  "AC Volts"
+
+ AVR6552_VAL_DC_CURRENT (3)
+  "DC Current"
+
+ AVR6552_VAL_AC_CURRENT (4)
+  "AC Current"
+
+ AVR6552_VAL_2_WIRE_RES (5)
+  "2 Wire Resistance"
+
+ AVR6552_VAL_4_WIRE_RES (101)
+  "4 Wire Resistance"
+
+ AVR6552_VAL_DIODE (102)
+  "Diode"
+
+ AVR6552_VAL_FREQ (104)
+  "Frequency"
+
+ AVR6552_VAL_AC_PLUS_DC_VOLTS (106)
+  "AC + DC Volts"
+
+ AVR6552_VAL_AC_PLUS_DC_CURRENT (107)
+  "AC + DC Current"
+
+ AVR6552_VAL_LP_2_WIRE_RES (1001)
+  "low-power 2-wire resistance"
+
+ AVR6552_VAL_LP_4_WIRE_RES (1002)
+  "Low-power 4-wire resistance"
+
+ AVR6552_VAL_RIPPLE_VOLTS (1003)
+  "Ripple Voltage"
+
+
+v attrFunctionRangeTable1 DataType="i"
+ AVR6552_VAL_DC_VOLTS (1)
+  "DC Volts"
+
+ AVR6552_VAL_AC_VOLTS (2)
+  "AC Volts"
+
+ AVR6552_VAL_DC_CURRENT (3)
+  "DC Current"
+
+ AVR6552_VAL_AC_CURRENT (4)
+  "AC Current"
+
+ AVR6552_VAL_2_WIRE_RES (5)
+  "2 Wire Resistance"
+
+ AVR6552_VAL_4_WIRE_RES (101)
+  "4 Wire Resistance"
+
+ AVR6552_VAL_DIODE (102)
+  "Diode"
+
+ AVR6552_VAL_FREQ (104)
+  "Frequency"
+
+ AVR6552_VAL_AC_PLUS_DC_VOLTS (106)
+  "AC + DC Volts"
+
+ AVR6552_VAL_AC_PLUS_DC_CURRENT (107)
+  "AC + DC Current"
+
+ AVR6552_VAL_LP_2_WIRE_RES (1001)
+  "low-power 2-wire resistance"
+
+ AVR6552_VAL_LP_4_WIRE_RES (1002)
+  "Low-power 4-wire resistance"
+
+
+v attrFunctionRangeTable2 DataType="i"
+ AVR6552_VAL_DC_VOLTS (1)
+  "DC Volts"
+
+ AVR6552_VAL_2_WIRE_RES (5)
+  "2 Wire Resistance"
+
+ AVR6552_VAL_4_WIRE_RES (101)
+  "4 Wire Resistance"
+
+ AVR6552_VAL_LP_2_WIRE_RES (1001)
+  "low-power 2-wire resistance"
+
+ AVR6552_VAL_LP_4_WIRE_RES (1002)
+  "Low-power 4-wire resistance"
+
+
+v attrFunctionRangeTable3 DataType="i"
+ AVR6552_VAL_DC_VOLTS (1)
+  "DC Volts"
+
+ AVR6552_VAL_2_WIRE_RES (5)
+  "2 Wire Resistance"
+
+ AVR6552_VAL_4_WIRE_RES (101)
+  "4 Wire Resistance"
+
+ AVR6552_VAL_RIPPLE_VOLTS (1003)
+  "Ripple voltage"
+
+
+v attrHighPassFilterRangeTable DataType="i"
+ AVR6552_VAL_FILTER_OFF (-1)
+  ""
+
+ 1000 (1000)
+  ""
+
+ 10000 (10000)
+  ""
+
+ 100000 (100000)
+  ""
+
+
+v attrLowPassFilterRangeTable DataType="i"
+ AVR6552_VAL_FILTER_OFF (-1)
+  ""
+
+ 1000 (1000)
+  ""
+
+ 10000 (10000)
+  ""
+
+ 100000 (100000)
+  ""
+
+ 1000000 (1000000)
+  ""
+
+
+v attrPowerlineFreqRangeTable DataType="d"
+ AVR6552_VAL_50_HERTZ (5.00000000000000E+001)
+  "50 Hertz"
+
+ AVR6552_VAL_60_HERTZ (6.00000000000000E+001)
+  "60 Hertz"
+
+
+v attrResolutionAbsoluteRangeTable DataType="d"
+ 10000 (1.00000000000000E+004)
+  ""
+
+ 1000 (1.00000000000000E+003)
+  ""
+
+ 100 (1.00000000000000E+002)
+  ""
+
+ 10 (1.00000000000000E+001)
+  ""
+
+ 1 (1.00000000000000E+000)
+  ""
+
+ .1 (1.00000000000000E-001)
+  ""
+
+ .01 (1.00000000000000E-002)
+  ""
+
+ .001 (1.00000000000000E-003)
+  ""
+
+ .0001 (1.00000000000000E-004)
+  ""
+
+ .00001 (1.00000000000000E-005)
+  ""
+
+ .000001 (1.00000000000000E-006)
+  ""
+
+ .0000001 (1.00000000000000E-007)
+  ""
+
+ .00000001 (1.00000000000000E-008)
+  ""
+
+
+v attrResolutionHighRangeTable DataType="d"
+ AVR6552_VAL_4_5_DIGITS (4.50000000000000E+000)
+  ""
+
+ AVR6552_VAL_5_5_DIGITS (5.50000000000000E+000)
+  ""
+
+
+v attrResolutionLowRangeTable DataType="d"
+ AVR6552_VAL_3_5_DIGITS (3.50000000000000E+000)
+  ""
+
+ AVR6552_VAL_4_5_DIGITS (4.50000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTableFreq DataType="d"
+ AVR6552_VAL_4_DIGITS (4.00000000000000E+000)
+  ""
+
+ AVR6552_VAL_5_DIGITS (5.00000000000000E+000)
+  ""
+
+ AVR6552_VAL_6_DIGITS (6.00000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTableRippleVolts DataType="d"
+ AVR6552_VAL_3_5_DIGITS (3.50000000000000E+000)
+  ""
+
+
+v attrSampleModeRangeTable DataType="i"
+ AVR6552_VAL_FREE_RUN (0)
+  "Free run sample mode"
+
+ AVR6552_VAL_HOLD (1)
+  "Hold sample mode"
+
+ AVR6552_VAL_BURST (2)
+  "Burst sample mode"
+
+
+v attrSampleRateRangeTable1 DataType="i"
+ AVR6552_VAL_FAST (0)
+  ""
+
+ AVR6552_VAL_MED (1)
+  ""
+
+ AVR6552_VAL_SLOW (2)
+  ""
+
+ AVR6552_VAL_LONGIT (3)
+  ""
+
+
+v attrSampleRateRangeTable2 DataType="i"
+ AVR6552_VAL_FAST (0)
+  ""
+
+ AVR6552_VAL_MED (1)
+  ""
+
+ AVR6552_VAL_SLOW (2)
+  ""
+
+
+v attrTriggerSourceRangeTable DataType="i"
+ AVR6552_VAL_IMMEDIATE (1)
+  ""
+
+
+v avr6552AttrDbModeRangeTable DataType="i"
+ AVR6552_VAL_DB_OFF (0)
+  ""
+
+ AVR6552_VAL_DB_ON (1)
+  ""
+
+ AVR6552_VAL_DBM_ON (2)
+  ""
+
+
+v ohmsRangeTable1 DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 30.0 (3.00000000000000E+001)
+  ""
+
+ 300.0 (3.00000000000000E+002)
+  ""
+
+ 3000.0 (3.00000000000000E+003)
+  ""
+
+ 30000.0 (3.00000000000000E+004)
+  ""
+
+ 300000.0 (3.00000000000000E+005)
+  ""
+
+ 3000000.0 (3.00000000000000E+006)
+  ""
+
+ 30000000.0 (3.00000000000000E+007)
+  ""
+
+ 300000000.0 (3.00000000000000E+008)
+  ""
+
+
+v ohmsRangeTable1R6552TR DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 30.0 (3.00000000000000E+001)
+  ""
+
+ 300.0 (3.00000000000000E+002)
+  ""
+
+ 3000.0 (3.00000000000000E+003)
+  ""
+
+ 30000.0 (3.00000000000000E+004)
+  ""
+
+ 300000.0 (3.00000000000000E+005)
+  ""
+
+ 3000000.0 (3.00000000000000E+006)
+  ""
+
+ 30000000.0 (3.00000000000000E+007)
+  ""
+
+
+v ohmsRangeTable2 DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ 300.0 (3.00000000000000E+002)
+  ""
+
+ 3000.0 (3.00000000000000E+003)
+  ""
+
+ 30000.0 (3.00000000000000E+004)
+  ""
+
+ 300000.0 (3.00000000000000E+005)
+  ""
+
+ 3000000.0 (3.00000000000000E+006)
+  ""
+
+ 30000000.0 (3.00000000000000E+007)
+  ""
+
+
+v Boolean_values DataType="i"
+ VI_TRUE (1)
+  "True"
+
+ VI_FALSE (0)
+  "False"
+
+
+v attrCalculationTypeRangeTable DataType="i"
+ AVR6552_VAL_AVR6552_ATTR_NULL_ENABLED (1)
+  ""
+
+ AVR6552_VAL_AVR6552_ATTR_SMOOTH_ENABLED (3)
+  ""
+
+ AVR6552_VAL_AVR6552_ATTR_COMPARE_ENABLED (4)
+  ""
+
+ AVR6552_VAL_AVR6552_ATTR_SCALE_ENABLED (5)
+  ""
+
+ AVR6552_VAL_AVR6552_ATTR_MAX_MIN_ENABLED (6)
+  ""
+
+
+v DiodeRangeTable DataType="d"
+ 3.0 (3.00000000000000E+000)
+  ""
+
+
+v FreqRangeTable DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+
+v attrMeasCompleteDestRangeTable DataType="i"
+ AVR6552_VAL_EXTERNAL (2)
+  "The DMM sends the measurement-complete signal on the external trigger "
+  "line."
+
+
+v attrSampleTriggerRangeTable DataType="i"
+ AVR6552_VAL_INTERVAL (10)
+  ""
+
+
+v attrTriggerCountRangeTable DataType="i"
+ 1 (1)
+  ""
+
+
+v attrResolutionRangeTable2 DataType="d"
+ AVR6552_VAL_2_5_DIGITS (2.50000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable3 DataType="d"
+ AVR6552_VAL_3_5_DIGITS (3.50000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable4 DataType="d"
+ AVR6552_VAL_4_5_DIGITS (4.50000000000000E+000)
+  ""
+
+ AVR6552_VAL_3_5_DIGITS (3.50000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable4Freq DataType="d"
+ AVR6552_VAL_4_DIGITS (4.00000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable5 DataType="d"
+ AVR6552_VAL_5_5_DIGITS (5.50000000000000E+000)
+  ""
+
+ AVR6552_VAL_4_5_DIGITS (4.50000000000000E+000)
+  ""
+
+ AVR6552_VAL_3_5_DIGITS (3.50000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable5Freq DataType="d"
+ AVR6552_VAL_5_DIGITS (5.00000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable6Freq DataType="d"
+ AVR6552_VAL_6_DIGITS (6.00000000000000E+000)
+  ""
+
+
+v DiodeRangeTable_Copy2 DataType="d"
+ 3.0 (3.00000000000000E+000)
+  ""
+
+
+v attrResolutionRangeTable DataType="d"
+ AVR6552_VAL_5_5_DIGITS (5.50000000000000E+000)
+  "5-1/2 digits"
+
+
+v attrCompareConstantRangeTable DataType="i"
+ AVR6552_VAL_HIGH (0)
+  ""
+
+ AVR6552_VAL_LOW (1)
+  ""
+
+
+v attrTriggerSlopeRangeTable DataType="i"
+ AVR6552_VAL_POS (0)
+  "Positive slope"
+
+ AVR6552_VAL_NEG (1)
+  "Negative slope"
+
+
+v RippleVoltsRangeTable_Copy2 DataType="d"
+ AVR6552_VAL_AUTO_RANGE_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the range before each measurement "
+  "automatically. "
+
+ AVR6552_VAL_AUTO_RANGE_ONCE (-3.00000000000000E+000)
+  "Configures the DMM to calculate the range before the next measurement.  "
+  "The DMM uses this range value for all subsequent measurements."
+
+ 0.03 (3.00000000000000E-002)
+  ""
+
+ 0.3 (3.00000000000000E-001)
+  ""
+
+ 3.0 (3.00000000000000E+000)
+  ""
+
+
+v attrTriggerDelayRangeTable DataType="d"
+ AVR6552_VAL_AUTO_DELAY_ON (-1.00000000000000E+000)
+  "Configures the DMM to calculate the trigger delay before each "
+  "measurement."
+
+ AVR6552_VAL_AUTO_DELAY_OFF (-2.00000000000000E+000)
+  "Stops the DMM from calculating the trigger delay.  Sets the trigger delay "
+  "to the last trigger delay the DMM calculated.\n"
+
+
+v attrApertureTimeUnitsRangeTable DataType="i"
+ AVR6552_VAL_SECONDS (0)
+  "Seconds"
+
+ AVR6552_VAL_POWER_LINE_CYCLES (1)
+  "Power Line Cycles"
+
+
+0 avr6552_SetAttributeViInt32 3 4 false s DataType="ViInt32"
+0 avr6552_GetAttributeViInt32 3 4 false g DataType="ViInt32"
+0 avr6552_CheckAttributeViInt32 3 4 false s DataType="ViInt32"
+0 avr6552_SetAttributeViReal64 3 4 false s DataType="ViReal64"
+0 avr6552_GetAttributeViReal64 3 4 false g DataType="ViReal64"
+0 avr6552_CheckAttributeViReal64 3 4 false s DataType="ViReal64"
+0 avr6552_SetAttributeViSession 3 4 false s DataType="ViSession"
+0 avr6552_GetAttributeViSession 3 4 false g DataType="ViSession"
+0 avr6552_CheckAttributeViSession 3 4 false s DataType="ViSession"
+0 avr6552_SetAttributeViBoolean 3 4 false s DataType="ViBoolean"
+0 avr6552_GetAttributeViBoolean 3 4 false g DataType="ViBoolean"
+0 avr6552_CheckAttributeViBoolean 3 4 false s DataType="ViBoolean"
+0 avr6552_SetAttributeViString 3 4 false s DataType="ViString"
+0 avr6552_GetAttributeViString 3 5 false g DataType="ViString"
+0 avr6552_CheckAttributeViString 3 4 false s DataType="ViString"
+
+1 all "Inherent IVI Attributes"
+  "Attributes common to all IVI instrument drivers."
+
+2 all "User Options"
+  "Attributes you can set to affect the operation of this instrument driver.\n"
+  "    "
+
+3 all "Range Check" AVR6552_ATTR_RANGE_CHECK ViBoolean gs Boolean_values
+  "Specifies whether to validate attribute values and function parameters.  "
+  "If enabled, the instrument driver validates the parameter values that you "
+  "pass to driver functions.  Range checking parameters is very useful for "
+  "debugging.  After you validate your program, you can set this attribute to "
+  "VI_FALSE to disable range checking and maximize performance.\n"
+  "    The default value is VI_TRUE.   Use the avr6552_InitWithOptions "
+  "function to override this value.\n"
+  "\n"
+  "Attribute Value: 1050002"
+
+3 all "Query Instrument Status" AVR6552_ATTR_QUERY_INSTRUMENT_STATUS ViBoolean gs Boolean_values
+  "Specifies whether the instrument driver queries the instrument status "
+  "after each operation.  Querying the instrument status is very useful for "
+  "debugging.  After you validate your program, you can set this attribute to "
+  "VI_FALSE to disable status checking and maximize performance\n"
+  "    The instrument driver can choose to ignore status checking for "
+  "particular attributes regardless of the setting of this attribute.\n"
+  "    The default value is VI_TRUE.   Use the avr6552_InitWithOptions "
+  "function to override this value.\n"
+  "\n"
+  "Attribute Value: 1050003"
+
+3 all "Cache" AVR6552_ATTR_CACHE ViBoolean gs Boolean_values
+  "Specifies whether to cache the value of attributes.  When caching is "
+  "enabled, the instrument driver keeps track of the current instrument "
+  "settings and avoids sending redundant commands to the instrument.  Thus, "
+  "you can significantly increase execution speed.\n"
+  "    The instrument driver can choose always to cache or never to cache "
+  "particular attributes regardless of the setting of this attribute.\n"
+  "    The default value is VI_TRUE.   Use the avr6552_InitWithOptions "
+  "function to override this value.\n"
+  "\n"
+  "Attribute Value: 1050004"
+
+3 all "Simulate" AVR6552_ATTR_SIMULATE ViBoolean gs Boolean_values
+  "Specifies whether or not to simulate instrument driver I/O operations.  "
+  "If simulation is enabled, instrument driver functions perform range "
+  "checking and call Ivi_GetAttribute and Ivi_SetAttribute functions, but "
+  "they do not perform instrument I/O.  For output parameters that represent "
+  "instrument data, the instrument driver functions return calculated values.\n"
+  "    The default value is VI_FALSE.   Use the avr6552_InitWithOptions "
+  "function to override this value.\n"
+  "\n"
+  "Attribute Value: 1050005"
+
+3 all "Record Value Coercions" AVR6552_ATTR_RECORD_COERCIONS ViBoolean gs Boolean_values
+  "Specifies whether the IVI engine keeps a list of the value coercions it "
+  "makes for ViInt32 and ViReal64 attributes.  You call "
+  "avr6552_GetNextCoercionRecord to extract and delete the oldest coercion "
+  "record from the list.\n"
+  "    The default value is VI_FALSE.   Use the avr6552_InitWithOptions "
+  "function to override this value.\n"
+  "\n"
+  "Attribute Value: 1050006"
+
+3 all "Interchange Check" AVR6552_ATTR_INTERCHANGE_CHECK ViBoolean gs Boolean_values
+  "Specifies whether to perform interchangeability checking and retrieve "
+  "interchangeability warnings when you call avr6552_Initiate or "
+  "avr6552_Read. \n"
+  "\n"
+  "The default value is VI_FALSE.\n"
+  "\n"
+  "Interchangeability warnings indicate that using your application with a "
+  "different instrument might cause different behavior.  You call "
+  "avr6552_GetNextInterchangeWarning to extract interchange warnings.  Call "
+  "the avr6552_ClearInterchangeWarnings function to clear the list of "
+  "interchangeability warnings without reading them.\n"
+  "\n"
+  "Interchangeability checking examines the attributes in a capability group "
+  "only if you specify a value for at least one attribute within that group.  "
+  "Interchangeability warnings can occur when an attribute affects the "
+  "behavior of the instrument and you have not set that attribute, or the "
+  "attribute has been invalidated since you set it.\n"
+  "\n"
+  "Attribute Value: 1050021"
+
+2 all "Driver Identification"
+  "Attributes that provide identity and version information about this "
+  "instrument driver.\n"
+  "    "
+
+3 all "Description" AVR6552_ATTR_SPECIFIC_DRIVER_DESCRIPTION ViString g
+  "A string that contains a brief description of the specific driver\n"
+  "\n"
+  "Attribute Value: 1050514"
+
+3 all "Driver Prefix" AVR6552_ATTR_SPECIFIC_DRIVER_PREFIX ViString g
+  "A string that contains the prefix for the instrument driver.  The name of "
+  "each user-callable function in this driver starts with this prefix.\n"
+  "\n"
+  "Attribute Value: 1050302"
+
+3 all "Driver Vendor" AVR6552_ATTR_SPECIFIC_DRIVER_VENDOR ViString g
+  "A string that contains the name of the vendor that supplies this driver.\n"
+  "\n"
+  "Attribute Value: 1050513"
+
+3 all "Revision" AVR6552_ATTR_SPECIFIC_DRIVER_REVISION ViString g
+  "A string that contains additional version information about this "
+  "instrument driver.\n"
+  "\n"
+  "Attribute Value: 1050551"
+
+3 all "Class Specification Major Version" AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION ViInt32 g
+  "The major version number of the class specification with which this "
+  "driver is compliant.\n"
+  "\n"
+  "Attribute Value: 1050515"
+
+3 all "Class Specification Minor Version" AVR6552_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION ViInt32 g
+  "The minor version number of the class specification with which this "
+  "driver is compliant.\n"
+  "\n"
+  "Attribute Value: 1050516"
+
+2 all "Driver Capabilities"
+  "Attributes that provide information about the capabilities of this "
+  "instrument driver.\n"
+  "    "
+
+3 all "Supported Instrument Models" AVR6552_ATTR_SUPPORTED_INSTRUMENT_MODELS ViString g
+  "Contains a model code of the instrument. For drivers that support more "
+  "than one device, this attribute contains a comma-separated list of "
+  "supported instrument models.\n"
+  "\n"
+  "Attribute Value: 1050327"
+
+3 all "Class Group Capabilities" AVR6552_ATTR_GROUP_CAPABILITIES ViString g
+  "A string that contains a comma-separated list of class-extention groups "
+  "that this driver implements.\n"
+  "\n"
+  "Attribute Value: 1050401"
+
+3 all "Number of Channels" AVR6552_ATTR_CHANNEL_COUNT ViInt32 g
+  "Indicates the number of channels that the specific instrument driver "
+  "supports.  \n"
+  "    For each attribute for which the IVI_VAL_MULTI_CHANNEL flag attribute "
+  "is set, the IVI engine maintains a separate cache value for each channel.\n"
+  "\n"
+  "Attribute Value: 1050203"
+
+2 all "Instrument Identification"
+  "Attributes that provide identity information about the instrument that "
+  "you are using.    "
+
+3 all "Manufacturer" AVR6552_ATTR_INSTRUMENT_MANUFACTURER ViString g
+  "A string that contains the name of the instrument manufacturer you are "
+  "currently using.\n"
+  "\n"
+  "Attribute Value: 1050511"
+
+3 all "Model" AVR6552_ATTR_INSTRUMENT_MODEL ViString g
+  "A string that contains the model number or name of the instrument that "
+  "you are currently using.\n"
+  "\n"
+  "Attribute Value: 1050512"
+
+3 all "Firmware Revision" AVR6552_ATTR_INSTRUMENT_FIRMWARE_REVISION ViString g
+  "A string that contains the firmware revision information for the "
+  "instrument you are currently using.\n"
+  "\n"
+  "Attribute Value: 1050510"
+
+2 all "Error Info"
+  "Attributes for error information.\n"
+  "    "
+
+2 all "Advanced Session Information"
+  "Attributes that contain additional information concerning the instrument "
+  "driver session.\n"
+  "    "
+
+3 all "Driver Setup" AVR6552_ATTR_DRIVER_SETUP ViString g
+  "This attribute indicates the Driver Setup string that the user specified "
+  "when initializing the driver.\n"
+  "\n"
+  "Some cases exist where the end-user must specify instrument driver options "
+  "at initialization time.  An example of this is specifying a particular "
+  "instrument model from among a family of instruments that the driver "
+  "supports.  This is useful when using simulation.  The end-user can specify "
+  "driver-specific options through the DriverSetup keyword in the "
+  "optionsString parameter to the avr6552_InitWithOptions function, or "
+  "through the IVI Configuration Utility.\n"
+  "\n"
+  "If the user does not specify a Driver Setup string, this attribute returns "
+  "an empty string.\n"
+  "\n"
+  "Attribute Value: 1050007"
+
+3 all "Logical Name" AVR6552_ATTR_LOGICAL_NAME ViString g
+  "A string containing the logical name you specified when opening the "
+  "current IVI session.\n"
+  "     You may pass a logical name to the avr6552_init or "
+  "avr6552_InitWithOptions functions.  The IVI Configuration utility must "
+  "contain an entry for the logical name.  The logical name entry refers to a "
+  "virtual instrument section in the IVI Configuration file.  The virtual "
+  "instrument section specifies a physical device and initial user options.\n"
+  "\n"
+  "Attribute Value: 1050305"
+
+3 all "Resource Descriptor" AVR6552_ATTR_IO_RESOURCE_DESCRIPTOR ViString g
+  "Indicates the resource descriptor the driver uses to identify the "
+  "physical device.\n"
+  "    If you initialize the driver with a logical name, this attribute "
+  "contains the resource descriptor that corresponds to the entry in the IVI "
+  "Configuration utility.  \n"
+  "    If you initialize the instrument driver with the resource descriptor, "
+  "this attribute contains that value.\n"
+  "\n"
+  "Attribute Value: 1050304"
+
+1 all "Basic Operation"
+  "Attributes that control the basic features of the DMM."
+
+2 all "Function" AVR6552_ATTR_FUNCTION ViInt32 gs
+  "Specifies the measurement function.\n"
+  "\n"
+  "Attribute Value: 1250001"
+
+2 all "Range" AVR6552_ATTR_RANGE ViReal64 gs
+  "Specifies the measurement range.  You use positive values to represent "
+  "the absolute value of the maximum expected measurement.  The value is in "
+  "units appropriate for the current value of the AVR6552_ATTR_FUNCTION "
+  "attribute.  For example, when you set the AVR6552_ATTR_FUNCTION attribute "
+  "to AVR6552_VAL_DC_VOLTS, the units are volts.  For example, setting this "
+  "attribute to 10.0 configures the DMM to measure DC voltages from -10.0 to "
+  "+10.0 volts.\n"
+  "    Negative values are reserved for controlling the DMM's auto-ranging "
+  "capability.\n"
+  "- AVR6552_VAL_AUTO_RANGE_ON (-1.0) - Configures the DMM to calculate the "
+  "range before each measurement automatically.\n"
+  "    For AVR6552, When you set this attribute to AVR6552_VAL_AUTO_RANGE_ON, "
+  "you cannot obtain the actual range the DMM is currently using.\n"
+  "\n"
+  "Note:  \n"
+  "(1)  For frequency or diode measurements, this attribute must be set to "
+  "AVR6552_VAL_AUTO_RANGE_ON.    \n"
+  "\n"
+  "(2) This attribute must be set to  AVR6552_VAL_AUTO_RANGE_ON in burst "
+  "measurement mode.\n"
+  "\n"
+  "Attribute Value: 1250002"
+
+2 all "Resolution" AVR6552_ATTR_RESOLUTION_ABSOLUTE ViReal64 gs attrResolutionAbsoluteRangeTable
+  "This attribute configures the measurement resolution of the DMM in "
+  "absolute units.\n"
+  "\n"
+  "Setting this attribute to lower values increases the measurement accuracy. "
+  " Setting this attribute to higher values increases the measurement speed.\n"
+  "\n"
+  "Attribute Value: 1250008"
+
+2 all "Digits Resolution" AVR6552_ATTR_RESOLUTION ViReal64 gs
+  "This attributes specifies the measurement resolution in digits of "
+  "precision.\n"
+  "\n"
+  "Note:  For AVR6552 series, the allowable resolution value depends on the "
+  "sample rates as well as measurement function as following table shows:\n"
+  "---------------------------------------------------\n"
+  "|    Measurement       |      Sampling Rate       |\n"
+  "|     Function         |--------------------------|\n"
+  "|                      |   SLOW/MED  |    FAST    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|       DCV            |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|     2W/4W Res        |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|    LP 2/4W Res       |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|        ACV           |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|        DCI           |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|        ACI           |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|      ACV (AC+DC)     |     4.5     |     3.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|      ACI (AC+DC)     |     4.5     |     3.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|         Diode        |     5.5     |     4.5    |\n"
+  "|----------------------|-------------|------------|\n"
+  "|        Ripple V      |     3.5     |     3.5    |\n"
+  "---------------------------------------------------\n"
+  "| Measurement |             Sampling Rate         |\n"
+  "| Function    |-----------------------------------| \n"
+  "|             |    SLOW   |    MED     |   FAST   |\n"
+  "|-------------|-----------|------------|----------|\n"
+  "|   FREQ      |    6.0    |     5.0    |    4.0   |\n"
+  "--------------------------------------------------- \n"
+  "When sample rate is set to long-it, the same number of digits as those of "
+  "the MED are displayed.\n"
+  "\n"
+  "Attribute Value: 1150028"
+
+1 all "Sample Rate"
+  "Attributes for configuring the sample rate"
+
+2 all "Sample Rate" AVR6552_ATTR_SAMPLE_RATE ViInt32 gs
+  "Specifies the sample rate the DMM uses to acquire a signal.\n"
+  "\n"
+  "Attribute Value: 1150004"
+
+2 all "Integral Time" AVR6552_ATTR_INTEGRAL_TIME ViReal64 gs
+  "Specifies the integral time for long-it sample rate.  The units for this "
+  "attribute are milliseconds.\n"
+  "\n"
+  "Attribute Value: 1150005"
+
+1 all "Trigger"
+  "Attributes that configure the triggering capabilities of the DMM."
+
+2 all "Trigger Source" AVR6552_ATTR_TRIGGER_SOURCE ViInt32 gs attrTriggerSourceRangeTable
+  "This attribute specifies the trigger source.\n"
+  " \n"
+  "Valid Values:\n"
+  "\n"
+  "AVR6552_VAL_IMMEDIATE - Immediate (Default)\n"
+  "\n"
+  "Attribute Value: 1250004"
+
+2 all "Trigger Delay" AVR6552_ATTR_TRIGGER_DELAY ViReal64 gs
+  "Specifies the length of time the DMM waits after it receives the trigger "
+  "and before it takes a measurement.  Use positive values to set the trigger "
+  "delay in seconds. \n"
+  "    \n"
+  "    Valid Range:  0.0 seconds\n"
+  "\n"
+  "Note:  This attribute does not affect the behavior of the DMM. It exists "
+  "only for class compliance.\n"
+  "\n"
+  "Attribute Value: 1250005"
+
+2 all "Trigger Operations"
+  "Attributes that configure the measurement flow of the DMM. These include "
+  "the sample mode and settings particular to each sample mode.\n"
+  "    "
+
+3 all "Sample Mode" AVR6552_ATTR_SAMPLE_MODE ViInt32 gs attrSampleModeRangeTable
+  "Specifies the sample mode the DMM to use.\n"
+  "\n"
+  "Attribute Value: 1150002"
+
+3 all "Delay" AVR6552_ATTR_DELAY ViReal64 gs
+  "Specifies the delay the DMM uses for the HOLD and BURST sample modes "
+  "before it takes a measurement.\n"
+  "\n"
+  "Valid Values:  0.0 - 99.999 seconds\n"
+  "\n"
+  "Attribute Value: 1150003"
+
+3 all "Hold Sample Count" AVR6552_ATTR_HOLD_SAMPLE_COUNT ViInt32 gs
+  "Specifies the number of measurements the DMM takes each time it receives "
+  "a trigger in Hold sample mode.\n"
+  "    \n"
+  "Valid Values:  1 - 9999\n"
+  "\n"
+  "Note:  This attribute does not affect the behavior of the instrument if "
+  "the  AVR6552_ATTR_SAMPLE_MODE attribute is not set to AVR6552_VAL_HOLD.\n"
+  "\n"
+  "Attribute Value: 1150008"
+
+3 all "Burst Count" AVR6552_ATTR_BURST_COUNT ViInt32 gs attrBurstCountRangeTable
+  "Specifies the measurement count to transfer to the internal memory in "
+  "burst sample mode.\n"
+  "\n"
+  "Notes:  \n"
+  "(1)  This attribute does not affect the behavior of the instrument if the "
+  "sample mode is not set to burst mode.\n"
+  "(2)  This attribute is supported only by AVR6552.\n"
+  "\n"
+  "Attribute Value: 1150006"
+
+3 all "Delayed Trigger" AVR6552_ATTR_DELAYED_TRIGGER ViInt32 gs attrDelayedTriggerRangeTable
+  "Specifies the percentage of numbers of premeasurement cycles out of the "
+  "total burst cycles.\n"
+  "\n"
+  "Notes:  \n"
+  "(1)  This attribute does not affect the behavior of the instrument if the "
+  "sample mode is not set to burst mode.\n"
+  "(2)  This attribute is supported only by AVR6552.\n"
+  "\n"
+  "Attribute Value: 1150007"
+
+1 all "AC Measurements"
+  "Attributes that configure additional parameters for AC voltage or AC "
+  "current measurements."
+
+2 all "AC Maximum Frequency" AVR6552_ATTR_AC_MAX_FREQ ViReal64 gs
+  "Specifies the maximum frequency component of the input signal for AC "
+  "measurements. The value of this attribute affects instrument behavior only "
+  "when you set the AVR6552_ATTR_FUNCTION attribute to one of the following "
+  "values:\n"
+  "\n"
+  "AVR6552_VAL_AC_VOLTS\n"
+  "AVR6552_VAL_AC_CURRENT\n"
+  "AVR6552_VAL_AC_PLUS_DC_VOLTS\n"
+  "AVR6552_VAL_AC_PLUS_DC_CURRENT\n"
+  "\n"
+  "Attribute Value: 1250007"
+
+2 all "AC Minimum Frequency" AVR6552_ATTR_AC_MIN_FREQ ViReal64 gs attrAcMinFreqRangeTable
+  "Specifies the minimum frequency component of the input signal for AC "
+  "measurements.  The value of this attribute affects instrument behavior "
+  "only when you set the AVR6552_ATTR_FUNCTION attribute to one of the "
+  "following values:\n"
+  "\n"
+  "AVR6552_VAL_AC_VOLTS\n"
+  "AVR6552_VAL_AC_CURRENT\n"
+  "AVR6552_VAL_AC_PLUS_DC_VOLTS\n"
+  "AVR6552_VAL_AC_PLUS_DC_CURRENT\n"
+  "\n"
+  "Attribute Value: 1250006"
+
+1 all "Frequency Measurements"
+  "Attributes that configure additional parameters for frequency "
+  "measurements."
+
+2 all "Frequency Voltage Range" AVR6552_ATTR_FREQ_VOLTAGE_RANGE ViReal64 gs
+  "Specifies the expected maximum value of the input signal for frequency "
+  "measurements in volts RMS.\n"
+  "\n"
+  "Valid Range: 0.1 - 700.0 volts RMS\n"
+  "\n"
+  "Attribute Value: 1250101"
+
+1 all "Ripple Voltage Measurements"
+  "Attributes that configure additional parameters for Ripple Volts "
+  "measurements."
+
+2 all "Low Pass Filter" AVR6552_ATTR_LOW_PASS_FILTER ViInt32 gs attrLowPassFilterRangeTable
+  "Specifies the frequency band of LPF (low-pass filter) the DMM uses to "
+  "measure ripple voltage.\n"
+  "\n"
+  "Note:  This attribute is supported only by AVR6552T-R.\n"
+  "\n"
+  "Attribute Value: 1150020"
+
+2 all "High Pass Filter" AVR6552_ATTR_HIGH_PASS_FILTER ViInt32 gs attrHighPassFilterRangeTable
+  "Specifies the frequency band of HPF (high-pass filter) the DMM uses to "
+  "measure ripple voltage.\n"
+  "\n"
+  "Note:  This attribute is supported only by AVR6552T-R.\n"
+  "\n"
+  "Attribute Value: 1150019"
+
+1 all "Measurement Operation Options"
+  "Attributes that configure different measurement options."
+
+2 all "Auto Zero" AVR6552_ATTR_AUTO_ZERO ViInt32 gs attrAutoZeroRangeTable
+  "Specifies the auto-zero mode.  In general, the auto-zero capability of a "
+  "DMM normalizes all measurements based on a Zero Reading.  When "
+  "auto-zeroing is enabled, the DMM internally disconnects the input signal "
+  "and takes a Zero Reading.  The DMM then subtracts the Zero Reading from "
+  "the measurement.  This prevents offset voltages present in the DMM's input "
+  "circuitry from affecting measurement accuracy.\n"
+  "\n"
+  "Attribute Value: 1250332"
+
+2 all "Powerline Frequency" AVR6552_ATTR_POWERLINE_FREQ ViReal64 g attrPowerlineFreqRangeTable
+  "Specifies the power line frequency in Hertz.\n"
+  "    \n"
+  "The instrument selects the powerline frequency automatically. This "
+  "attribute cannot be set by the user.\n"
+  "\n"
+  "Attribute Value: 1250333"
+
+2 all "Null Calculation"
+  "Attributes for configuring null calculation."
+
+3 all "Null Calculation Enabled" AVR6552_ATTR_NULL_ENABLED ViBoolean gs Boolean_values
+  "Enable/Disable Null calculation\n"
+  "\n"
+  "Attribute Value: 1150022"
+
+3 all "Null Offset" AVR6552_ATTR_NULL_OFFSET ViReal64 gs
+  "Specifies the offset for null operation.\n"
+  "\n"
+  "Attribute Value: 1150011"
+
+2 all "Smoothing Calculation"
+  "Attributes for configuring smoothing calculation"
+
+3 all "Smoothing Enabled" AVR6552_ATTR_SMOOTH_ENABLED ViBoolean gs Boolean_values
+  "Enable/Disable Smoothing\n"
+  "\n"
+  "Attribute Value: 1150023"
+
+3 all "Smooth Count" AVR6552_ATTR_SMOOTH_COUNT ViInt32 gs
+  "Specifies the cycle count for smoothing calculation.\n"
+  "\n"
+  "Attribute Value: 1150012"
+
+2 all "Comparison Calculation"
+  "Attributes for configuring comparison calculation."
+
+3 all "Compare Enabled" AVR6552_ATTR_COMPARE_ENABLED ViBoolean gs Boolean_values
+  "Enable/Disable Comparison calculation.\n"
+  "\n"
+  "Attribute Value: 1150024"
+
+3 all "Compare High Constant Value" AVR6552_ATTR_COMPARE_HIGH_VAL ViReal64 gs
+  "Specifies the high value for comparison calculation.\n"
+  "\n"
+  "Attribute Value: 1150013"
+
+3 all "Compare Low Constant Value" AVR6552_ATTR_COMPARE_LOW_VAL ViReal64 gs
+  "Specifies the low value for comparison calculation.\n"
+  "\n"
+  "Attribute Value: 1150014"
+
+2 all "Scaling Calculation"
+  "Attributes for configuring scaling calculation."
+
+3 all "Scaling Enabled" AVR6552_ATTR_SCALE_ENABLED ViBoolean gs Boolean_values
+  "Enable/Disable Scaling\n"
+  "\n"
+  "Attribute Value: 1150025"
+
+3 all "A Value for Scale Operation" AVR6552_ATTR_SCALE_A ViReal64 gs
+  "Specifies the first constant (constant A) for scale calculation.\n"
+  "\n"
+  "Attribute Value: 1150015"
+
+3 all "B Value for Scale Operation" AVR6552_ATTR_SCALE_B ViReal64 gs
+  "Specifies the second constant (constant B) for scale calculation.\n"
+  "\n"
+  "Attribute Value: 1150016"
+
+3 all "C Value for Scale Operation" AVR6552_ATTR_SCALE_C ViReal64 gs
+  "Specifies the third constant (constant C) for scale calculation.\n"
+  "\n"
+  "Attribute Value: 1150017"
+
+2 all "Max-Min Calculation"
+  "Attributes for configuring the MaxMin calculation."
+
+3 all "Max Min Enabled" AVR6552_ATTR_MAX_MIN_ENABLED ViBoolean gs Boolean_values
+  "Enable/Disable the MaxMin calculation.\n"
+  "\n"
+  "Attribute Value: 1150026"
+
+2 all "dB/dBm Calculation"
+  "Attribute for configuring dB/dBm calculation."
+
+3 all "dB Mode" AVR6552_ATTR_DB_MODE ViInt32 gs avr6552AttrDbModeRangeTable
+  "Specifies the decible conversion to perform.\n"
+  "\n"
+  "Defined Values:\n"
+  "\n"
+  "AVR6552_VAL_DB_OFF - Disable the dB/dBm calculation\n"
+  "AVR6552_VAL_DB_ON  - Enable the dB calculation\n"
+  "AVR6552_VAL_DBM_ON - Enable the dBm calculation\n"
+  "\n"
+  "Notes:\n"
+  "\n"
+  "(1) The dB calculation executes a decibel converison. It is functional "
+  "only during voltage measurements. \n"
+  "\n"
+  "(2) The dBm calculation is useful for calculating the power gain  per mV. "
+  "It is functional only during voltage measurements.\n"
+  "\n"
+  "(3) The db, dBm, and scaling calculations cannot be selected at the same "
+  "time.\n"
+  "\n"
+  "Attribute Value: 1150027"
+
+3 all "DB/DBM Constant" AVR6552_ATTR_DB_CONSTANT ViReal64 gs
+  "Specifies the constant for dB and dBm operation.\n"
+  "\n"
+  "Attribute Value: 1150018"
+
+1 all "Miscellaneous Attributes"
+  "Additional Attributes."
+
+2 all "ID Query Response" AVR6552_ATTR_ID_QUERY_RESPONSE ViString g
+  "Returns the ID Query response string.  The instrument driver gets the "
+  "value of this attribute when you pass VI_TRUE for the ID Query parameter "
+  "to the avr6552_init or avr6552_InitWithOptions function.\n"
+  "\n"
+  "Attribute Value: 1150001"
+
+2 all "Hidden Attributes (not user-viewable)"
+  "    "
+
+3 all "OPC Callback Timeout" AVR6552_ATTR_OPC_TIMEOUT ViInt32 hidden
+  "This attribute is hidden.  The driver uses this attribute internally to "
+  "set the timeout for the OPC callback.\n"
+  "    "
+

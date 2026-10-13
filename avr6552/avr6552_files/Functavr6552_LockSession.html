@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_LockSession</title>
+  </head>
+  <body>
+    <h1>avr6552_LockSession</h1>
+    <p class="syntax">
+      ViStatus avr6552_LockSession (ViSession instrumentHandle,
+                              ViPBoolean callerHasLock);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function obtains a multithread lock on the instrument session.&nbsp;&nbsp;Before it does so, it waits until all other execution threads have released their locks on the instrument session.
+    <br/>
+    Other threads might have obtained a lock on this session in the following ways:
+    <br/>
+    - The user's application called avr6552_LockSession.
+    <br/>
+    - A call to the instrument driver locked the session.
+    <br/>
+    - A call to the IVI engine locked the session.
+    <br/>
+    After your call to avr6552_LockSession returns successfully, no other threads can access the instrument session until you call avr6552_UnlockSession.
+    <br/>
+    Use avr6552_LockSession and avr6552_UnlockSession around a sequence of calls to instrument driver functions if you require that the instrument retain its settings through the end of the sequence.
+    <br/>
+    You can safely make nested calls to avr6552_LockSession within the same thread.&nbsp;&nbsp;To completely unlock the session, you must balance each call to avr6552_LockSession with a call to avr6552_UnlockSession.&nbsp;&nbsp;If, however, you use the Caller Has Lock parameter in all calls to avr6552_LockSession and avr6552_UnlockSession within a function, the IVI Library locks the session only once within the function regardless of the number of calls you make to avr6552_LockSession.&nbsp;&nbsp;This allows you to call avr6552_UnlockSession just once at the end of the function.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><em class="label">Output</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">callerHasLock</td>
+        <td class="paramDataType">ViBoolean (passed by reference)</td>
+        <td>
+    This parameter serves as a convenience.&nbsp;&nbsp;If you do not want to use this parameter, pass VI_NULL.
+    <br/>
+    Use this parameter in complex functions to keep track of whether you obtain a lock and therefore need to unlock the session.&nbsp;&nbsp;Pass the address of a local ViBoolean variable.&nbsp;&nbsp;In the declaration of the local variable, initialize it to VI_FALSE.&nbsp;&nbsp;Pass the address of the same local variable to any other calls you make to avr6552_LockSession or avr6552_UnlockSession in the same function.
+    <br/>
+    The parameter is an input/output parameter.&nbsp;&nbsp;avr6552_LockSession and avr6552_UnlockSession each inspect the current value and take the following actions:
+    <br/>
+    - If the value is VI_TRUE, avr6552_LockSession does not lock the session again.&nbsp;&nbsp;If the value is VI_FALSE, avr6552_LockSession obtains the lock and sets the value of the parameter to VI_TRUE.
+    <br/>
+    - If the value is VI_FALSE, avr6552_UnlockSession does not attempt to unlock the session.&nbsp;&nbsp;If the value is VI_TRUE, avr6552_UnlockSession releases the lock and sets the value of the parameter to VI_FALSE.
+    <br/>
+    Thus, you can, call avr6552_UnlockSession at the end of your function without worrying about whether you actually have the lock.&nbsp;&nbsp;
+    <br/>
+    Example:
+    <br/>
+    ViStatus TestFunc (ViSession vi, ViInt32 flags)
+    <br/>
+    {
+    <br/>
+    ViStatus error = VI_SUCCESS;
+    <br/>
+    ViBoolean haveLock = VI_FALSE;
+    <br/>
+    if (flags &amp; BIT_1)
+    <br/>
+    {
+    <br/>
+    viCheckErr( avr6552_LockSession(vi, &amp;haveLock));
+    <br/>
+    viCheckErr( TakeAction1(vi));
+    <br/>
+    if (flags &amp; BIT_2)
+    <br/>
+    {
+    <br/>
+    viCheckErr( avr6552_UnlockSession(vi, &amp;haveLock));
+    <br/>
+    viCheckErr( TakeAction2(vi));
+    <br/>
+    viCheckErr( avr6552_LockSession(vi, &amp;haveLock);
+    <br/>
+    }
+    <br/>
+    if (flags &amp; BIT_3)
+    <br/>
+    viCheckErr( TakeAction3(vi));
+    <br/>
+    }
+    <br/>
+    Error:
+    <br/>
+    /*
+    <br/>
+    At this point, you cannot really be sure that
+    <br/>
+    you have the lock.&nbsp;&nbsp;Fortunately, the haveLock
+    <br/>
+    variable takes care of that for you.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    */
+    <br/>
+    avr6552_UnlockSession(vi, &amp;haveLock);
+    <br/>
+    return error;
+    <br/>
+    }
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassLocking.html">Locking</a><br/>
+      <a href="ClassUtility.html">Utility</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

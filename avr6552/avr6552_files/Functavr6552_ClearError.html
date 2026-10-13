@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_ClearError</title>
+  </head>
+  <body>
+    <h1>avr6552_ClearError</h1>
+    <p class="syntax">
+      ViStatus avr6552_ClearError (ViSession instrumentHandle);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function clears the error code and error description for the IVI session. If the user specifies a valid IVI session for the instrument_handle parameter, this function clears the error information for the session. If the user passes VI_NULL for the Vi parameter, this function clears the error information for the current execution thread. If the Vi parameter is an invalid session, the function does nothing and returns an error.
+    <br/>
+    The function clears the error code by setting it to VI_SUCCESS.&nbsp;&nbsp;If the error description string is non-NULL, the function de-allocates the error description string and sets the address to VI_NULL.
+    <br/>
+    Maintaining the error information separately for each thread is useful if the user does not have a session handle to pass to the avr6552_GetError function, which occurs when a call to avr6552_Init or avr6552_InitWithOptions fails.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, or if the status code is not listed below, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, use the avr6552_GetError and avr6552_ClearError functions.
+    <br/>
+    Status Codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    0&nbsp;&nbsp;No error (the call was successful).
+    <br/>
+    3FFF0005&nbsp;&nbsp;The specified termination character was read.
+    <br/>
+    3FFF0006&nbsp;&nbsp;The specified number of bytes was read.
+    <br/>
+    3FFC0102&nbsp;&nbsp;Reset not supported.
+    <br/>
+    BFFF0000&nbsp;&nbsp;Miscellaneous or system error occurred.
+    <br/>
+    BFFF000E&nbsp;&nbsp;Invalid session handle.
+    <br/>
+    BFFF0015&nbsp;&nbsp;Timeout occurred before operation could complete.
+    <br/>
+    BFFF0034&nbsp;&nbsp;Violation of raw write protocol occurred.
+    <br/>
+    BFFF0035&nbsp;&nbsp;Violation of raw read protocol occurred.
+    <br/>
+    BFFF0036&nbsp;&nbsp;Device reported an output protocol error.
+    <br/>
+    BFFF0037&nbsp;&nbsp;Device reported an input protocol error.
+    <br/>
+    BFFF0038&nbsp;&nbsp;Bus error occurred during transfer.
+    <br/>
+    BFFF003A&nbsp;&nbsp;Invalid setup (attributes are not consistent).
+    <br/>
+    BFFF005F&nbsp;&nbsp;A &quot;no listeners&quot; condition was detected.
+    <br/>
+    BFFF0060&nbsp;&nbsp;This interface is not the controller-in-charge.
+    <br/>
+    BFFF0067&nbsp;&nbsp;Operation is not supported on this session.
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassError.html">Error</a><br/>
+      <a href="ClassUtility.html">Utility</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

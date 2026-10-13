@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_SetAttributeViBoolean</title>
+  </head>
+  <body>
+    <h1>avr6552_SetAttributeViBoolean</h1>
+    <p class="syntax">
+      ViStatus avr6552_SetAttributeViBoolean (ViSession instrumentHandle,
+                                        ViChar _VI_FAR channelName[],
+                                        ViAttr attributeID,
+                                        ViBoolean attributeValue);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function sets the value of a ViBoolean attribute.
+    <br/>
+    This is a low-level function that you can use to set the values of instrument-specific attributes and inherent IVI attributes.&nbsp;&nbsp;If the attribute represents an instrument state, this function performs instrument I/O in the following cases:
+    <br/>
+    - State caching is disabled for the entire session or for the particular attribute.
+    <br/>
+    - State caching is enabled and the currently cached value is invalid or is different than the value you specify.
+    <br/>
+    This instrument driver contains high-level functions that set most of the instrument attributes.&nbsp;&nbsp;It is best to use the high-level driver functions as much as possible.&nbsp;&nbsp;They handle order dependencies and multithread locking for you.&nbsp;&nbsp;In addition, they perform status checking only after setting all of the attributes.&nbsp;&nbsp;In contrast, when you set multiple attributes using the SetAttribute functions, the functions check the instrument status after each call.
+    <br/>
+    Also, when state caching is enabled, the high-level functions that configure multiple attributes perform instrument I/O only for the attributes whose value you change.&nbsp;&nbsp;Thus, you can safely call the high-level functions without the penalty of redundant instrument I/O.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">channelName</td>
+        <td class="paramDataType">ViChar[]</td>
+        <td>
+    DMM attributes are not channel-based. Pass VI_NULL or an empty string for this parameter.
+    <br/>
+    Default Value:&nbsp;&nbsp;&quot;&quot;
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName"><a href="Attriavr6552_SetAttributeViInt32.html">attributeID</a></td>
+        <td class="paramDataType">ViAttr</td>
+        <td>
+    Pass the ID of an attribute.
+    <br/>
+    From the function panel window, you can use this control as follows.
+    <br/>
+    - Click on the control or press &lt;ENTER&gt;, &lt;spacebar&gt;, or
+    <br/>
+    &lt;ctrl-down arrow&gt;, to display a dialog box containing a
+    <br/>
+    hierarchical list of the available attributes.&nbsp;&nbsp;Attributes
+    <br/>
+    whose value cannot be set are dim.&nbsp;&nbsp;Help text is shown for
+    <br/>
+    each attribute.&nbsp;&nbsp;Select an attribute by double-clicking on it&nbsp;&nbsp;
+    <br/>
+    or by selecting it and then pressing &lt;ENTER&gt;.
+    <br/>
+    Read-only attributes appear dim in the list box.&nbsp;&nbsp;If you
+    <br/>
+    select a read-only attribute, an error message appears.
+    <br/>
+    A ring control at the top of the dialog box allows you to see
+    <br/>
+    all IVI attributes or only the attributes of the ViBoolean
+    <br/>
+    type.&nbsp;&nbsp;If you choose to see all IVI attributes, the data types
+    <br/>
+    appear to the right of the attribute names in the list box.
+    <br/>
+    The data types that are not consistent with this function are
+    <br/>
+    dim. If you select an attribute data type that is dim,
+    <br/>
+    LabWindows/CVI transfers you to the function panel for the
+    <br/>
+    corresponding function that is consistent with the data type.
+    <br/>
+    - If you want to enter a variable name, press &lt;CTRL-T&gt; to change
+    <br/>
+    this ring control to a manual input box.
+    <br/>
+    - If the attribute in this ring control has constants as valid
+    <br/>
+    values, you can view the constants by moving to the Attribute
+    <br/>
+    Value control and pressing &lt;ENTER&gt;.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">attributeValue</td>
+        <td class="paramDataType">ViBoolean</td>
+        <td>
+    Pass the value to which you want to set the attribute.
+    <br/>
+    From the function panel window, you can use this control as follows.
+    <br/>
+    - If the attribute currently showing in the Attribute ID ring
+    <br/>
+    control has constants as valid values, you can view a list of
+    <br/>
+    the constants by pressing &lt;ENTER&gt; on this control.&nbsp;&nbsp;Select a
+    <br/>
+    value by double-clicking on it or by selecting it and then
+    <br/>
+    pressing &lt;ENTER&gt;.&nbsp;&nbsp;
+    <br/>
+    Note:&nbsp;&nbsp;Some of the values might not be valid depending on the
+    <br/>
+    current settings of the instrument session.
+    <br/>
+    Default Value: none
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    No defined status codes.
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassSet%20Attribute.html">Set Attribute</a><br/>
+      <a href="ClassSet,Get,Check%20Attribute.html">Set/Get/Check Attribute</a><br/>
+      <a href="ClassConfiguration.html">Configuration</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,540 @@
+library: avr6552_*.*
+
+class: "avr6552"
+implements: ivi, ividmm, iviResourceMgr
+attribute: "Range Check"
+	"Inherent IVI Settings:User Options:Range Check"
+	bool readwrite local 00100592
+"Specifies whether to validate property values and VI parameters.  If enabled, the instrument driver validates the parameter values that you pass to driver VIs.  Range checking parameters is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable range checking and maximize performance.
+    The default value is TRUE.   Use the avr6552 Initialize With Options VI to override this value.
+    
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Query Instrument Status"
+	"Inherent IVI Settings:User Options:Query Instrument Status"
+	bool readwrite local 00100593
+"Specifies whether the instrument driver queries the instrument status after each operation.  Querying the instrument status is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable status checking and maximize performance
+    The instrument driver can choose to ignore status checking for particular properties regardless of the setting of this property.
+    The default value is TRUE.   Use the avr6552 Initialize With Options VI to override this value.
+    
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Cache"
+	"Inherent IVI Settings:User Options:Cache"
+	bool readwrite local 00100594
+"Specifies whether to cache the value of properties.  When caching is enabled, the instrument driver keeps track of the current instrument settings and avoids sending redundant commands to the instrument.  Thus, you can significantly increase execution speed.
+    The instrument driver can choose always to cache or never to cache particular properties regardless of the setting of this property.
+    The default value is TRUE.   Use the avr6552 Initialize With Options VI to override this value.
+    
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Simulate"
+	"Inherent IVI Settings:User Options:Simulate"
+	bool readwrite local 00100595
+"Specifies whether or not to simulate instrument driver I/O operations.  If simulation is enabled, instrument driver VIs perform range checking but they do not perform instrument I/O.  For output parameters that represent instrument data, the instrument driver VIs return calculated values.
+    The default value is FALSE.   Use the avr6552 Initialize With Options VI to override this value.
+    
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Record Value Coercions"
+	"Inherent IVI Settings:User Options:Record Value Coercions"
+	bool readwrite local 00100596
+"Specifies whether the IVI engine keeps a list of the value coercions it makes for ViInt32 and ViReal64 properties.  You call avr6552 Get Next Coercion Record to extract and delete the oldest coercion record from the list.
+    The default value is FALSE.   Use the avr6552 Initialize With Options VI to override this value.
+    
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Interchange Check"
+    "Inherent IVI Settings:User Options:Interchange Check"
+	bool readwrite local 001005A5
+"Specifies whether to perform interchangeability checking and log interchangeability warnings when you call avr6552 Read VI or avr6552 Initiate VI.
+
+The default value is FALSE.
+
+Interchangeability warnings indicate that using your application with a different instrument might cause different behavior.  You call avr6552 Get Next Interchange Warning.vi to extract interchange warnings.  Call avr6552 Clear Interchange Warnings.vi to clear the list of interchangeability warnings without reading them.
+
+Interchangeability checking examines the attributes in a capability group only if you specify a value for at least one attribute within that group.  Interchangeability warnings can occur when an attribute affects the behavior of the instrument and you have not set that attribute, or the attribute has been invalidated since you set it.
+
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Driver Setup"
+    "Inherent IVI Settings:Advanced Session Information:Driver Setup"
+	string readonly local 00100597
+"This property indicates the Driver Setup string that the user specified when initializing the driver.
+
+Some cases exist where the end-user must specify instrument driver options at initialization time.  An example of this is specifying a particular instrument model from among a family of instruments that the driver supports.  This is useful when using simulation.  The end-user can specify driver-specific options through the DriverSetup keyword in the optionsString parameter to the avr6552 Init With Options.vi, or through the IVI Configuration Utility.
+
+If the user does not specify a Driver Setup string, this property returns an empty string.
+"
+attribute: "Description"
+	"Inherent IVI Settings:Driver Identification:Description"
+	string readonly local 00100792
+"A string that contains a brief description of the specific driver
+    "
+attribute: "Driver Prefix"
+	"Inherent IVI Settings:Driver Identification:Driver Prefix"
+	string readonly local 001006BE
+"A string that contains the prefix for the instrument driver.  The name of each user-callable VI in this driver starts with this prefix.
+    "
+attribute: "Driver Vendor"
+	"Inherent IVI Settings:Driver Identification:Driver Vendor"
+	string readonly local 00100791
+"A string that contains the name of the vendor that supplies this driver.
+    "
+attribute: "Major Version"
+	"Obsolete:Inherent IVI Settings:Driver Identification:Major Version"
+	iL readonly local 00100787
+"The major version number of this instrument driver.
+    "
+attribute: "Minor Version"
+	"Obsolete:Inherent IVI Settings:Driver Identification:Minor Version"
+	iL readonly local 00100788
+"The minor version number of this instrument driver.
+    "
+attribute: "Revision"
+	"Inherent IVI Settings:Driver Identification:Revision"
+	string readonly local 001007B7
+"A string that contains additional version information about this instrument driver.
+    "
+attribute: "Class Specification Major Version"
+	"Inherent IVI Settings:Driver Identification:Class Specification Major Version"
+	iL readonly local 00100793
+"The major version number of the class specification with which this driver is compliant.
+    "
+attribute: "Class Specification Minor Version"
+	"Inherent IVI Settings:Driver Identification:Class Specification Minor Version"
+	iL readonly local 00100794
+"The minor version number of the class specification with which this driver is compliant.
+    "
+attribute: "Supported Instrument Models"
+	"Inherent IVI Settings:Driver Capabilities:Supported Instrument Models"
+	string readonly local 001006D7
+"Contains a model code of the instrument. For drivers that support more than one device, this property contains a comma-separated list of supported instrument models.
+    "
+attribute: "Number of Channels"
+	"Inherent IVI Settings:Driver Capabilities:Number of Channels"
+	iL readonly local 0010065B
+"Indicates the number of channels that the specific instrument driver supports.  
+    For each property for which the IVI_VAL_MULTI_CHANNEL flag property is set, the IVI engine maintains a separate cache value for each channel.
+    "
+attribute: "Manufacturer"
+	"Inherent IVI Settings:Instrument Identification:Manufacturer"
+	string readonly local 0010078F
+"A string that contains the name of the instrument manufacturer you are currently using.
+    "
+attribute: "Model"
+	"Inherent IVI Settings:Instrument Identification:Model"
+	string readonly local 00100790
+"A string that contains the model number or name of the instrument that you are currently using.
+    "
+attribute: "Firmware Revision"
+	"Inherent IVI Settings:Instrument Identification:Firmware Revision"
+	string readonly local 0010078E
+"A string that contains the firmware revision information for the instrument you are currently using.
+    "
+attribute: "Logical Name"
+	"Inherent IVI Settings:Advanced Session Information:Logical Name"
+	string readonly local 001006C1
+"A string containing the logical name you specified when opening the current IVI session.
+     You may pass a logical name to the avr6552 Initialize or avr6552 Initialize With Options VIs.  The IVI Configuration utility must contain an entry for the logical name.  The logical name entry refers to a virtual instrument section in the IVI Configuration file.  The virtual instrument section specifies a physical device and initial user options.
+    "
+attribute: "Resource Descriptor"
+	"Inherent IVI Settings:Advanced Session Information:Resource Descriptor"
+	string readonly local 001006C0
+"Indicates the resource descriptor the driver uses to identify the physical device.
+    If you initialize the driver with a logical name, this property contains the resource descriptor that corresponds to the entry in the IVI Configuration utility.  
+    If you initialize the instrument driver with the resource descriptor, this property contains that value.
+    "
+attribute: "Function"
+	"Basic Operation:Function"
+	iL readwrite local 001312D1
+"Specifies the measurement function.
+    "
+attribute: "Range"
+	"Basic Operation:Range"
+	fD readwrite local 001312D2
+"Specifies the measurement range.  You use positive values to represent the absolute value of the maximum expected measurement.  The value is in units appropriate for the current value of the avr6552>>Basic Operation>>Function property.  For example, when you set the avr6552>>Basic Operation>>Function property to AVR6552_VAL_DC_VOLTS, the units are volts.  For example, setting this property to 10.0 configures the DMM to measure DC voltages from -10.0 to +10.0 volts.
+    Negative values are reserved for controlling the DMM's auto-ranging capability.
+- AVR6552_VAL_AUTO_RANGE_ON (-1.0) - Configures the DMM to calculate the range before each measurement automatically.
+    For AVR6552, When you set this property to AVR6552_VAL_AUTO_RANGE_ON, you cannot obtain the actual range the DMM is currently using.
+
+Note:  
+(1)  For frequency or diode measurements, this property must be set to AVR6552_VAL_AUTO_RANGE_ON.    
+
+(2) This property must be set to  AVR6552_VAL_AUTO_RANGE_ON in burst measurement mode."
+attribute: "Resolution"
+	"Basic Operation:Resolution"
+	fD enum { 10000=1.000000E+4, 1000=1.000000E+3, 100=1.000000E+2, 10=1.000000E+1, 1=1.000000E+0, .1=1.000000E-1, .01=1.000000E-2, .001=1.000000E-3, .0001=1.000000E-4, .00001=1.000000E-5, .000001=1.000000E-6, .0000001=1.000000E-7, .00000001=1.000000E-8} readwrite local 001312D8
+"This property configures the measurement resolution of the DMM in absolute units.
+
+Setting this property to lower values increases the measurement accuracy.  Setting this property to higher values increases the measurement speed.
+
+10000 10000
+
+1000 1000
+
+100 100
+
+10 10
+
+1 1
+
+.1 0.1
+
+.01 0.01
+
+.001 0.001
+
+.0001 0.0001
+
+.00001 1e-005
+
+.000001 1e-006
+
+.0000001 1e-007
+
+.00000001 1e-008"
+attribute: "Digits Resolution"
+	"Basic Operation:Digits Resolution"
+	fD readwrite local 00118C4C
+"This properties specifies the measurement resolution in digits of precision.
+
+Note:  For AVR6552 series, the allowable resolution value depends on the sample rates as well as measurement function as following table shows:
+---------------------------------------------------
+|    Measurement       |      Sampling Rate       |
+|     Function         |--------------------------|
+|                      |   SLOW/MED  |    FAST    |
+|----------------------|-------------|------------|
+|       DCV            |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|     2W/4W Res        |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|    LP 2/4W Res       |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|        ACV           |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|        DCI           |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|        ACI           |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|      ACV (AC+DC)     |     4.5     |     3.5    |
+|----------------------|-------------|------------|
+|      ACI (AC+DC)     |     4.5     |     3.5    |
+|----------------------|-------------|------------|
+|         Diode        |     5.5     |     4.5    |
+|----------------------|-------------|------------|
+|        Ripple V      |     3.5     |     3.5    |
+---------------------------------------------------
+| Measurement |             Sampling Rate         |
+| Function    |-----------------------------------| 
+|             |    SLOW   |    MED     |   FAST   |
+|-------------|-----------|------------|----------|
+|   FREQ      |    6.0    |     5.0    |    4.0   |
+--------------------------------------------------- 
+When sample rate is set to long-it, the same number of digits as those of the MED are displayed.    "
+attribute: "Sample Rate"
+	"Sample Rate:Sample Rate"
+	iL readwrite local 00118C34
+"Specifies the sample rate the DMM uses to acquire a signal."
+attribute: "Integral Time"
+	"Sample Rate:Integral Time"
+	fD readwrite local 00118C35
+"Specifies the integral time for long-it sample rate.  The units for this property are milliseconds."
+attribute: "Trigger Source"
+	"Trigger:Trigger Source"
+	iL enum { AVR6552_VAL_IMMEDIATE=1} readwrite local 001312D4
+"This property specifies the trigger source.
+ 
+Valid Values:
+
+AVR6552_VAL_IMMEDIATE - Immediate (Default)
+AVR6552_VAL_IMMEDIATE 1"
+attribute: "Trigger Delay"
+	"Trigger:Trigger Delay"
+	fD readwrite local 001312D5
+"Specifies the length of time the DMM waits after it receives the trigger and before it takes a measurement.  Use positive values to set the trigger delay in seconds. 
+    
+    Valid Range:  0.0 seconds
+
+Note:  This property does not affect the behavior of the DMM. It exists only for class compliance.
+    "
+attribute: "Sample Mode"
+	"Trigger:Trigger Operations:Sample Mode"
+	iL enum { AVR6552_VAL_FREE_RUN=0, AVR6552_VAL_HOLD=1, AVR6552_VAL_BURST=2} readwrite local 00118C32
+"Specifies the sample mode the DMM to use.
+AVR6552_VAL_FREE_RUN 0
+Free run sample mode
+
+AVR6552_VAL_HOLD 1
+Hold sample mode
+
+AVR6552_VAL_BURST 2
+Burst sample mode"
+attribute: "Delay"
+	"Trigger:Trigger Operations:Delay"
+	fD readwrite local 00118C33
+"Specifies the delay the DMM uses for the HOLD and BURST sample modes before it takes a measurement.
+
+Valid Values:  0.0 - 99.999 seconds
+
+"
+attribute: "Hold Sample Count"
+	"Trigger:Trigger Operations:Hold Sample Count"
+	iL readwrite local 00118C38
+"Specifies the number of measurements the DMM takes each time it receives a trigger in Hold sample mode.
+    
+Valid Values:  1 - 9999
+
+Note:  This property does not affect the behavior of the instrument if the  avr6552>>Trigger>>Trigger Operations>>Sample Mode property is not set to AVR6552_VAL_HOLD.
+    "
+attribute: "Burst Count"
+	"Trigger:Trigger Operations:Burst Count"
+	iL enum { 1000=1000, 2000=2000, 3000=3000, 4000=4000, 5000=5000, 6000=6000, 7000=7000, 8000=8000, 9000=9000, 10000=10000} readwrite local 00118C36
+"Specifies the measurement count to transfer to the internal memory in burst sample mode.
+
+Notes:  
+(1)  This property does not affect the behavior of the instrument if the sample mode is not set to burst mode.
+(2)  This property is supported only by AVR6552.
+1000 1000
+
+2000 2000
+
+3000 3000
+
+4000 4000
+
+5000 5000
+
+6000 6000
+
+7000 7000
+
+8000 8000
+
+9000 9000
+
+10000 10000"
+attribute: "Delayed Trigger"
+	"Trigger:Trigger Operations:Delayed Trigger"
+	iL enum { 0=0, 25=25, 50=50, 75=75} readwrite local 00118C37
+"Specifies the percentage of numbers of premeasurement cycles out of the total burst cycles.
+
+Notes:  
+(1)  This property does not affect the behavior of the instrument if the sample mode is not set to burst mode.
+(2)  This property is supported only by AVR6552.
+0 0
+
+25 25
+
+50 50
+
+75 75"
+attribute: "AC Maximum Frequency"
+	"AC Measurements:AC Maximum Frequency"
+	fD readwrite local 001312D7
+"Specifies the maximum frequency component of the input signal for AC measurements. The value of this property affects instrument behavior only when you set the avr6552>>Basic Operation>>Function property to one of the following values:
+
+AVR6552_VAL_AC_VOLTS
+AVR6552_VAL_AC_CURRENT
+AVR6552_VAL_AC_PLUS_DC_VOLTS
+AVR6552_VAL_AC_PLUS_DC_CURRENT
+    
+"
+attribute: "AC Minimum Frequency"
+	"AC Measurements:AC Minimum Frequency"
+	fD enum { 300.0=3.000000E+2, 20.0=2.000000E+1} readwrite local 001312D6
+"Specifies the minimum frequency component of the input signal for AC measurements.  The value of this property affects instrument behavior only when you set the avr6552>>Basic Operation>>Function property to one of the following values:
+
+AVR6552_VAL_AC_VOLTS
+AVR6552_VAL_AC_CURRENT
+AVR6552_VAL_AC_PLUS_DC_VOLTS
+AVR6552_VAL_AC_PLUS_DC_CURRENT
+    
+300.0 300
+
+20.0 20"
+attribute: "avr6552>>Frequency Measurements>>Frequency Voltage Range"
+	"Frequency Measurements:avr6552>>Frequency Measurements>>"
+	fD readwrite local 00131335
+"Specifies the expected maximum value of the input signal for frequency measurements in volts RMS.
+
+Valid Range: 0.1 - 700.0 volts RMS
+
+"
+attribute: "Low Pass Filter"
+	"Ripple Voltage Measurements:Low Pass Filter"
+	iL enum { AVR6552_VAL_FILTER_OFF=-1, 1000=1000, 10000=10000, 100000=100000, 1000000=1000000} readwrite local 00118C44
+"Specifies the frequency band of LPF (low-pass filter) the DMM uses to measure ripple voltage.
+
+Note:  This property is supported only by AVR6552T-R.
+AVR6552_VAL_FILTER_OFF -1
+
+1000 1000
+
+10000 10000
+
+100000 100000
+
+1000000 1000000"
+attribute: "High Pass Filter"
+	"Ripple Voltage Measurements:High Pass Filter"
+	iL enum { AVR6552_VAL_FILTER_OFF=-1, 1000=1000, 10000=10000, 100000=100000} readwrite local 00118C43
+"Specifies the frequency band of HPF (high-pass filter) the DMM uses to measure ripple voltage.
+
+Note:  This property is supported only by AVR6552T-R.
+AVR6552_VAL_FILTER_OFF -1
+
+1000 1000
+
+10000 10000
+
+100000 100000"
+attribute: "Auto Zero"
+	"Measurement Operation Options:Auto Zero"
+	iL enum { AVR6552_VAL_AUTO_ZERO_OFF=0, AVR6552_VAL_AUTO_ZERO_ON=1, AVR6552_VAL_AUTO_ZERO_ONCE=2} readwrite local 0013141C
+"Specifies the auto-zero mode.  In general, the auto-zero capability of a DMM normalizes all measurements based on a Zero Reading.  When auto-zeroing is enabled, the DMM internally disconnects the input signal and takes a Zero Reading.  The DMM then subtracts the Zero Reading from the measurement.  This prevents offset voltages present in the DMM's input circuitry from affecting measurement accuracy.
+    
+AVR6552_VAL_AUTO_ZERO_OFF 0
+Disables the DMM from taking any more Zero Readings.  The DMM subtract the last Zero Reading from all subsequent values it measures.
+
+AVR6552_VAL_AUTO_ZERO_ON 1
+Configures the DMM to take a Zero Reading for each measurement.  The DMM subtracts the Zero Reading from the value it measures.
+
+AVR6552_VAL_AUTO_ZERO_ONCE 2
+Configures the DMM to take a Zero Reading immediately.  The DMM then subtracts this Zero Reading from all subsequent values it measures."
+attribute: "Powerline Frequency"
+	"Measurement Operation Options:Powerline Frequency"
+	fD enum { AVR6552_VAL_50_HERTZ=5.000000E+1, AVR6552_VAL_60_HERTZ=6.000000E+1} readonly local 0013141D
+"Specifies the power line frequency in Hertz.
+    
+The instrument selects the powerline frequency automatically. This property cannot be set by the user.
+
+AVR6552_VAL_50_HERTZ 50
+50 Hertz
+
+AVR6552_VAL_60_HERTZ 60
+60 Hertz"
+attribute: "Null Calculation Enabled"
+	"Measurement Operation Options:Null Calculation:Null Calculation Enabled"
+	bool readwrite local 00118C46
+"Enable/Disable Null calculation
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Null Offset"
+	"Measurement Operation Options:Null Calculation:Null Offset"
+	fD readwrite local 00118C3B
+"Specifies the offset for null operation."
+attribute: "Smoothing Enabled"
+	"Measurement Operation Options:Smoothing Calculation:Smoothing Enabled"
+	bool readwrite local 00118C47
+"Enable/Disable Smoothing
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Smooth Count"
+	"Measurement Operation Options:Smoothing Calculation:Smooth Count"
+	iL readwrite local 00118C3C
+"Specifies the cycle count for smoothing calculation."
+attribute: "Compare Enabled"
+	"Measurement Operation Options:Comparison Calculation:Compare Enabled"
+	bool readwrite local 00118C48
+"Enable/Disable Comparison calculation.
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "Compare High Constant Value"
+	"Measurement Operation Options:Comparison Calculation:Compare High Constant Value"
+	fD readwrite local 00118C3D
+"Specifies the high value for comparison calculation."
+attribute: "Compare Low Constant Value"
+	"Measurement Operation Options:Comparison Calculation:Compare Low Constant Value"
+	fD readwrite local 00118C3E
+"Specifies the low value for comparison calculation."
+attribute: "Scaling Enabled"
+	"Measurement Operation Options:Scaling Calculation:Scaling Enabled"
+	bool readwrite local 00118C49
+"Enable/Disable Scaling
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "A Value for Scale Operation"
+	"Measurement Operation Options:Scaling Calculation:A Value for Scale Operation"
+	fD readwrite local 00118C3F
+"Specifies the first constant (constant A) for scale calculation."
+attribute: "B Value for Scale Operation"
+	"Measurement Operation Options:Scaling Calculation:B Value for Scale Operation"
+	fD readwrite local 00118C40
+"Specifies the second constant (constant B) for scale calculation."
+attribute: "C Value for Scale Operation"
+	"Measurement Operation Options:Scaling Calculation:C Value for Scale Operation"
+	fD readwrite local 00118C41
+"Specifies the third constant (constant C) for scale calculation."
+attribute: "Max Min Enabled"
+	"Measurement Operation Options:Max-Min Calculation:Max Min Enabled"
+	bool readwrite local 00118C4A
+"Enable/Disable the MaxMin calculation.
+TRUE 1
+True
+
+FALSE 0
+False"
+attribute: "dB Mode"
+	"Measurement Operation Options:dB/dBm Calculation:dB Mode"
+	iL enum { AVR6552_VAL_DB_OFF=0, AVR6552_VAL_DB_ON=1, AVR6552_VAL_DBM_ON=2} readwrite local 00118C4B
+"Specifies the decible conversion to perform.
+
+Defined Values:
+
+AVR6552_VAL_DB_OFF - Disable the dB/dBm calculation
+AVR6552_VAL_DB_ON  - Enable the dB calculation
+AVR6552_VAL_DBM_ON - Enable the dBm calculation
+
+Notes:
+
+(1) The dB calculation executes a decibel converison. It is functional only during voltage measurements. 
+
+(2) The dBm calculation is useful for calculating the power gain  per mV. It is functional only during voltage measurements.
+
+(3) The db, dBm, and scaling calculations cannot be selected at the same time. 
+
+AVR6552_VAL_DB_OFF 0
+
+AVR6552_VAL_DB_ON 1
+
+AVR6552_VAL_DBM_ON 2"
+attribute: "DB/DBM Constant"
+	"Measurement Operation Options:dB/dBm Calculation:DB/DBM Constant"
+	fD readwrite local 00118C42
+"Specifies the constant for dB and dBm operation."
+attribute: "ID Query Response"
+	"Miscellaneous Settings:ID Query Response"
+	string readonly local 00118C31
+"Returns the ID Query response string.  The instrument driver gets the value of this property when you pass TRUE for the ID Query parameter to the avr6552 Initialize or avr6552 Initialize With Options VI.
+    "

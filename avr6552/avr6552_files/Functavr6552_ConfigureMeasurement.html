@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="htmlhelp.css" type="text/css">
+    <title>avr6552_ConfigureMeasurement</title>
+  </head>
+  <body>
+    <h1>avr6552_ConfigureMeasurement</h1>
+    <p class="syntax">
+      ViStatus avr6552_ConfigureMeasurement (ViSession instrumentHandle,
+                                       ViInt32 measurementFunction,
+                                       ViReal64 range,
+                                       ViReal64 resolution_absolute);
+    </p>
+    <h2 class="purpose">Purpose</h2>
+    <p class="body">
+    This function configures the common attributes of the DMM.&nbsp;&nbsp;These attributes include the measurement function, maximum range, and the absolute resolution.
+    </p>
+    <h2>Parameters</h2>
+    <table class="borderless" summary="Parameter help">
+      <tr>
+        <td valign="top"><em class="label">Input</em></td>
+      </tr>
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">instrumentHandle</td>
+        <td class="paramDataType">ViSession</td>
+        <td>
+    The ViSession handle that you obtain from the avr6552_init or avr6552_InitWithOptions function.&nbsp;&nbsp;The handle identifies a particular instrument session.
+    <br/>
+    Default Value:&nbsp;&nbsp;None
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">measurementFunction</td>
+        <td class="paramDataType">ViInt32</td>
+        <td>
+    Pass the measurement function you want the DMM to perform.&nbsp;&nbsp;The driver sets the AVR6552_ATTR_FUNCTION attribute to this value.&nbsp;&nbsp;
+    <br/>
+    Valid Values:
+    <br/>
+    Model AVR6552:
+    <br/>
+    AVR6552_VAL_DC_VOLTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- DC Volts (Default)
+    <br/>
+    AVR6552_VAL_AC_VOLTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- AC Volts
+    <br/>
+    AVR6552_VAL_DC_CURRENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- DC Current
+    <br/>
+    AVR6552_VAL_AC_CURRENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- AC Current
+    <br/>
+    AVR6552_VAL_2_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 2-Wire Resistance
+    <br/>
+    AVR6552_VAL_LP_2_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Low Power 2-Wire Resistance
+    <br/>
+    AVR6552_VAL_4_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 4-Wire Resistance
+    <br/>
+    AVR6552_VAL_LP_4_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Low Power 4-Wire Resistance
+    <br/>
+    AVR6552_VAL_AC_PLUS_DC_VOLTS&nbsp;&nbsp;&nbsp;- AC plus DC Volts
+    <br/>
+    AVR6552_VAL_AC_PLUS_DC_CURRENT - AC plus DC Current
+    <br/>
+    AVR6552_VAL_FREQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Frequency
+    <br/>
+    AVR6552_VAL_DIODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Diode
+    <br/>
+    Model AVR6552T:
+    <br/>
+    AVR6552_VAL_DC_VOLTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- DC Volts (Default)
+    <br/>
+    AVR6552_VAL_2_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 2-Wire Resistance
+    <br/>
+    AVR6552_VAL_4_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 4-Wire Resistance
+    <br/>
+    AVR6552_VAL_LP_2_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Low Power 2-Wire Resistance
+    <br/>
+    AVR6552_VAL_LP_4_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Low Power 4-Wire Resistance
+    <br/>
+    Model AVR6552T-R:
+    <br/>
+    AVR6552_VAL_DC_VOLTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- DC Volts (Default)
+    <br/>
+    AVR6552_VAL_2_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 2-Wire Resistance
+    <br/>
+    AVR6552_VAL_4_WIRE_RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 4-Wire Resistance
+    <br/>
+    AVR6552_VAL_RIPPLE_VOLTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ripple Volts
+    <br/>
+    Notes:&nbsp;&nbsp;
+    <br/>
+    (1)&nbsp;&nbsp;This attribute can only be set to DC Volts or DC Current when the sample rate is AVR6552_VAL_LONGIT.
+    <br/>
+    (2)&nbsp;&nbsp;This attribute can only be set to DC Volts, DC Current, 2-Wire resistance, or LP 2-Wire resistance if the sample mode is AVR6552_VAL_BURST.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">range</td>
+        <td class="paramDataType">ViReal64</td>
+        <td>
+    Pass the measurement range you want to use.&nbsp;&nbsp;The driver sets the AVR6552_ATTR_RANGE attribute to this value.&nbsp;&nbsp;
+    <br/>
+    Use positive values to represent the absolute value of the maximum expected measurement.&nbsp;&nbsp;The value must be in units appropriate for the Measurement Function.&nbsp;&nbsp;For example, when you set the Measurement Function to AVR6552_VAL_DC_VOLTS, you must specify the Range in volts.&nbsp;&nbsp;Setting this parameter to 10.0 configures the DMM to measure DC voltages from -10.0 to +10.0 volts.
+    <br/>
+    The driver reserves special negative values for controlling the DMM's auto-ranging capability.
+    <br/>
+    Defined Values:
+    <br/>
+    AVR6552_VAL_AUTO_RANGE_ON&nbsp;&nbsp;(-1.0) - Auto-range On
+    <br/>
+    Valid Manual Range:&nbsp;&nbsp;The valid manual range depends on the measurement function you select with the AVR6552_ATTR_FUNCTION attribute.
+    <br/>
+    AVR6552:
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | DC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|0.03, 0.3, 3.0, 30.0, 300.0, 1000.0| volts |
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | AC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;0.3, 3.0, 30.0, 300.0, 700.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts |
+    <br/>
+    | AC+DC Volts&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | DC/AC Current&nbsp;&nbsp;|&nbsp;&nbsp;0.003, 0.03, 0.3, 3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| amps&nbsp;&nbsp;|
+    <br/>
+    | AC+DC Current&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | 2/4-Wire Res&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;30,300,3K,30K,300K,3M,30M,300M&nbsp;&nbsp;&nbsp;| ohms&nbsp;&nbsp;|
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | LP 2/4-Wire Res|&nbsp;&nbsp;300, 3K, 30K, 300K, 3M, 30M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ohms&nbsp;&nbsp;|
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    AVR6552T:
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | DC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;0.03, 0.3, 3.0, 30.0, 200.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts |
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | 2/4-Wire Res&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;30,300,3K,30K,300K,3M,30M,300M&nbsp;&nbsp;&nbsp;| ohms&nbsp;&nbsp;|
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | LP 2/4-Wire Res|&nbsp;&nbsp;300, 3K, 30K, 300K, 3M, 30M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ohms&nbsp;&nbsp;|
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    AVR6552T-R:
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Unit&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | DC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;0.3, 3.0, 30.0, 300.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts |
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | 2/4-Wire Res&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;30, 300, 3K, 30K, 300K, 3M, 30M&nbsp;&nbsp;| ohms&nbsp;&nbsp;|
+    <br/>
+    |----------------|-----------------------------------|-------|
+    <br/>
+    | Ripple Voltage |&nbsp;&nbsp;0.03, 0.3, 3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts |
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    Default Value:
+    <br/>
+    AVR6552_VAL_AUTO_RANGE_ON (-1.0)
+    <br/>
+    Notes:
+    <br/>
+    (1) For AVR6552, the auto range is always on when the measurement function is set to AVR6552_VAL_FREQ, and the range value is fixed value 3000mv when the measurement function is set to AVR6552_VAL_DIODE.
+        </td>
+      </tr>
+      <tr>
+        <td class="paramName">resolution_absolute</td>
+        <td class="paramDataType">ViReal64</td>
+        <td>
+    Pass your desired measurement resolution in absolute units. The driver sets the AVR6552_ATTR_RESOLUTION_ABSOLUTE attribute to this value.
+    <br/>
+    Setting this parameter to lower values increases the measurement accuracy.&nbsp;&nbsp;Setting this parameter to higher values increases the measurement speed.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    Valid Range:
+    <br/>
+    The valid range depends on the current measurement function and the current measurement range that you select with the AVR6552_ATTR_FUNCTION and the AVR6552_ATTR_RANGE attributes. The table below shows the minimum and maximum resolution values for each measurement type. The minimum resolution values are based on the maximum possible range for that measurement function. The maximum resolution values are based on the minimum possible range.
+    <br/>
+    ---------------------------------------------------------------
+    <br/>
+    |&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;&nbsp;&nbsp;&nbsp;| Min Resolution|&nbsp;&nbsp;Max Resolution&nbsp;&nbsp;&nbsp;| Unit&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    ---------------------------------------------------------------
+    <br/>
+    | DC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;100.0E-9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts&nbsp;&nbsp;|
+    <br/>
+    |----------------|---------------|-------------------|--------|
+    <br/>
+    | AC Volts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;1.0E-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts&nbsp;&nbsp;|
+    <br/>
+    | AC+DC Volts&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------|---------------|-------------------|--------|
+    <br/>
+    | DC Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;100.0E-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;10.0E-9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| amps&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------|---------------|-------------------|--------|
+    <br/>
+    | AC Current&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;100.0E-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;10.0E-9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| amps&nbsp;&nbsp;&nbsp;|
+    <br/>
+    | AC+DC Current&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------|---------------|-------------------|--------|
+    <br/>
+    | 2/4 Wire Res&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;10000.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;100.0E-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ohms&nbsp;&nbsp;&nbsp;|
+    <br/>
+    | LP 2/4 Wire Res|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| ohms&nbsp;&nbsp;&nbsp;|
+    <br/>
+    |----------------|---------------|-------------------|--------|
+    <br/>
+    | Ripple Volts&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;0.0001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;10.0E-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| volts&nbsp;&nbsp;|
+    <br/>
+    --------------------------------------------------------------
+    <br/>
+    Default Value: 0.0001 Volts
+    <br/>
+    Notes:
+    <br/>
+    (1) This parameter is ignored if the 'Range' parameter is set to AVR6552_VAL_AUTO_RANGE_ON.
+        </td>
+      </tr>
+    </table>
+    <h2>Return Value</h2>
+    <table class="borderless" summary="Return value help">
+      <tr>
+        <td class="tablehead">Name</td>
+        <td class="tablehead">Type</td>
+        <td class="tablehead">Description</td>
+      </tr>
+      <tr>
+        <td class="paramName">status</td>
+        <td class="paramDataType">ViStatus</td>
+        <td>
+    Returns the status code of this operation.&nbsp;&nbsp;The status code&nbsp;&nbsp;either indicates success or describes an error or warning condition.&nbsp;&nbsp;You examine the status code from each call to an instrument driver function to determine if an error occurred.
+    <br/>
+    To obtain a text description of the status code, call the avr6552_error_message function.&nbsp;&nbsp;To obtain additional information about the error condition, call the avr6552_GetError function.&nbsp;&nbsp;To clear the error information from the driver, call the avr6552_ClearError function.
+    <br/>
+    The general meaning of the status code is as follows:
+    <br/>
+    Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meaning
+    <br/>
+    -------------------------------
+    <br/>
+    0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success
+    <br/>
+    Positive Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    Negative Values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    This driver defines the following status codes:
+    <br/>
+    Status&nbsp;&nbsp;&nbsp;&nbsp;Description
+    <br/>
+    -------------------------------------------------
+    <br/>
+    WARNINGS:
+    <br/>
+    /*=CHANGE:===================================================*
+    <br/>
+    Insert Instrument-defined warning codes here.
+    <br/>
+    *================================================END=CHANGE=*/
+    <br/>
+    ERRORS:
+    <br/>
+    /*=CHANGE:===================================================*
+    <br/>
+    Insert Instrument-defined error codes here.
+    <br/>
+    *================================================END=CHANGE=*/
+    <br/>
+    This instrument driver also returns errors and warnings defined by other sources.&nbsp;&nbsp;The following table defines the ranges of additional status codes that this driver can return.&nbsp;&nbsp;The table lists the different include files that contain the defined constants for the particular status codes:
+    <br/>
+    Numeric Range (in Hex)&nbsp;&nbsp;&nbsp;Status Code Types&nbsp;&nbsp;&nbsp;&nbsp;
+    <br/>
+    -------------------------------------------------
+    <br/>
+    3FFA2000 to 3FFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm&nbsp;&nbsp;Warnings
+    <br/>
+    3FFA0000 to 3FFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFF0000 to 3FFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warnings
+    <br/>
+    3FFC0000 to 3FFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP&nbsp;&nbsp;&nbsp;Driver Warnings
+    <br/>
+    BFFA2000 to BFFA3FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IviDmm Errors
+    <br/>
+    BFFA0000 to BFFA1FFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFF0000 to BFFFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors
+    <br/>
+    BFFC0000 to BFFCFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VXIPnP Driver Errors
+        </td>
+      </tr>
+    </table>
+    <h2>References</h2>
+    <p class="body">
+      <a href="ClassConfiguration.html">Configuration</a><br/>
+      <a href="Advantest%20R6552%20Digital%20Multimeter.html">Advantest R6552 Digital Multimeter</a><br/>
+      <a href="Alphabetical%20Function%20Index.html">Alphabetical Function Index</a><br/>
+      <a href="Hierarchical%20Function%20Index.html">Hierarchical Function Index</a><br/>
+    </p>
+  </body>
+</html>
